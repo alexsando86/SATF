@@ -1,15 +1,17 @@
 # SsgAnimationTF
 
-### Markdown 사용법
-- https://gist.github.com/ihoneymon/652be052a0727ad59601
+### Tutorial
+- Markdown : https://guides.github.com/features/mastering-markdown/
+- React : https://www.w3schools.com/REACT/default.asp
+- TweenMax : https://greensock.com/docs/
 
 <hr />
 
 ### 주제
- - [ ] ES6
- - [ ] React
- - [ ] TweenMax
- - [ ] CSS
+ - [x] ES6
+ - [x] React
+ - [x] TweenMax
+ - [x] CSS
 
 <hr />
 
