@@ -1,0 +1,28 @@
+/* ssg reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+body,th,td,input,select,textarea,button{font-size:14px;font-family:'AppleSDGothicNeo-Regular',sans-serif;color:#000}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:'none'}
+input,select,textarea,button{font-size:100%;vertical-align:middle}
+button{border:0 none;background-color:transparent;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+body{-webkit-text-size-adjust:none}
+a{text-decoration:none}
+a:active,a:hover{text-decoration:none}
+.blind{overflow:hidden;position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;line-height:0;white-space:normal;word-wrap:break-word;word-break:break-all;clip:rect(0,0,0,0)}
+.blind:before{display:block;width:0;height:0;font-size:0;content:'\00a0'}
+caption{overflow:hidden;width:1px;height:1px;margin-top:-1px;padding:0;font-size:1px;line-height:0;color:transparent;white-space:nowrap;text-overflow:ellipsis}
+caption.blind{position:static;margin:-1px 0 0}
+caption.blind:before{display:none}
+caption .blind{position:static}
+caption .blind:before{display:none}
+.sr_toggle .sr_off{display:block}
+.sr_toggle .sr_on{display:none}
+.sr_toggle.on .sr_off{display:none}
+.sr_toggle.on .sr_on{display:block}
+
+.skip_navi{display:block;overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;color:#fff;text-align:center}
+.skip_navi:focus,.skip_navi:active{width:100%;height:auto;padding:5px 0;background:#f84e64}
