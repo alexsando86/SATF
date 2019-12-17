@@ -5,20 +5,15 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="App-text">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="satf_section">
+        <ul className="satf_list">
+          <li><a href="./satf_list/loading.html">loading.html</a></li>
+          <li><a href="./satf_list/button.html">button.html</a></li>
+          <li><a href="./satf_list/snow.html">snow.html</a></li>
+          <li><a href="./satf_list/festival.html">festival.html</a></li>
+          <li><a href="./satf_list/text.html">loading.html</a></li>
+        </ul>
+      </section>
     </div>
   );
 }

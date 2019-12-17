@@ -23,9 +23,16 @@
  > 
     npm install -g create-react-app
     npm install react-gsap
+    yarn add node-sass
  > 
     yarn start
     
+### sass-loader 커스터마이징
+1. create-react-app으로 만든 프로젝트는 구조의 복잡도를 낮추기 위하여 세부설정이 숨어있습니다.
+2. 이를 커스터마이징 하기 위해서는 yarn eject 명렁어를 통하여 세부설정을 밖으로 빼내야 합니다.
+3. create-react-app 으로 만든 프로젝트는 기본적으로 .git 설정도 되어있는데요, yarn eject 는 아직 git 에 커밋되지 않은 변화가 있다면 진행이 되지 않으니, 먼저 커밋을 해주어야 합니다.
+> 
+    yarn eject
 <hr />
 
 ### TweenMax
