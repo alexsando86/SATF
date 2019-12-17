@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import 'reset.scss';
+import './styles/loading.scss';
 
 function App() {
   return (

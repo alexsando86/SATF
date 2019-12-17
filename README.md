@@ -20,10 +20,11 @@
     git init
     git clone https://github.com/alexsando86/SATF.git
     npm install
+    npm install -g yarn
  > 
     npm install -g create-react-app
     npm install react-gsap
-    yarn add node-sass
+    yarn add node-sass sass-loader
  > 
     yarn start
     
