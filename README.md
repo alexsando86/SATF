@@ -1,5 +1,6 @@
 # SsgAnimationTF
 
+ - [ ] ES6
  - [ ] React
  - [ ] TweenMax
  - [ ] CSS
@@ -14,3 +15,6 @@
     npm install react-gsap
  > 
     yarn start
+    
+### TweenMax
+- Install: https://greensock.com/docs/v3/Installation#npm
