@@ -1,4 +1,4 @@
-# SsgAnimationTF
+# SAI (SsgAnimationIndex)
 
 ### Tutorial
 - Markdown : https://guides.github.com/features/mastering-markdown/
@@ -38,3 +38,17 @@
 
 ### TweenMax
 - Install: https://greensock.com/docs/v3/Installation#npm
+
+### Git 
+> https://backlog.com/git-tutorial/kr/
+##### 브랜치 만들기
+>   
+    git branch <branchname>
+##### 브랜치 전환하기
+>   
+    git checkout <branchname>
+##### 브랜치 병합하기
+>   
+    git checkout master
+    git merge <branchname>
+>   
