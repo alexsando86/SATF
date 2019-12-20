@@ -29,6 +29,10 @@ header {
   height: 100%;
   background:#4a4a4a;
   box-shadow:5px 0 5px #ccc;
+  transition:.3s;
+  &.active {
+    left: 0;
+  }
   &_ctg {
     li {
       a {
@@ -37,6 +41,26 @@ header {
         font-size: 15px;
         color:#fff;
       }
+    }
+  }
+  .aside_close {
+    position: absolute;
+    right:0;
+    top:0;
+    width:25px;
+    height:25px;
+    &:before, &:after {
+      content:'';
+      position: absolute;
+      left:50%;
+      top:50%;
+      width:12px;
+      height:1px;
+      background:#fff;
+      transform:translate(-50%, -50%) rotate(45deg);
+    }
+    &:after {
+      transform:translate(-50%, -50%) rotate(-45deg);
     }
   }
 }

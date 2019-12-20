@@ -4,15 +4,27 @@ import Aside from "./Aside";
 import Header from "./Header";
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
+    state = {
+        visible: false,
     }
+
+    showControl = () => {
+        this.setState({
+            visible: true,
+        })
+    }
+    hideControl = () => {
+        this.setState({
+            visible: false,
+        })
+    }
+
     render() {
         return(
             <div className="App">
-                <Header />
+                <Header showControls={this.showControl} />
                 <section className="container">
-                    <Aside />
+                    <Aside currentState={this.state.visible} hideContols={this.hideControl}/>
                 </section>
             </div>
         )
