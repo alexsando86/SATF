@@ -2,7 +2,6 @@ import React from 'react';
 
 class Aside extends React.Component {
     render() {
-        console.log(this.props)
         return(
             <div className={this.props.currentState === true ? 'aside active' : 'aside' }>
                 <ul className="aside_ctg">

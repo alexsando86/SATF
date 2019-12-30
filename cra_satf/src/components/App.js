@@ -6,25 +6,20 @@ import Header from "./Header";
 class App extends React.Component {
     state = {
         visible: false,
-    }
+    };
 
-    showControl = () => {
+    displayToggleControl = () => {
         this.setState({
-            visible: true,
+            visible: !this.state.visible,
         })
-    }
-    hideControl = () => {
-        this.setState({
-            visible: false,
-        })
-    }
+    };
 
     render() {
         return(
             <div className="App">
-                <Header showControls={this.showControl} />
+                <Header showControls={this.displayToggleControl} />
                 <section className="container">
-                    <Aside currentState={this.state.visible} hideContols={this.hideControl}/>
+                    <Aside currentState={this.state.visible} hideContols={this.displayToggleControl}/>
                 </section>
             </div>
         )
