@@ -40,7 +40,8 @@
 - Install: https://greensock.com/docs/v3/Installation#npm
 
 ### Git 
-> https://backlog.com/git-tutorial/kr/
+- https://backlog.com/git-tutorial/kr/
+- https://learngitbranching.js.org/
 ##### 브랜치 만들기
 >   
     git branch <branchname>
@@ -51,4 +52,11 @@
 >   
     git checkout master
     git merge <branchname>
+
+##### repository 내 모든 수정 되돌리기 ( git add 명령하기 전 )
 >   
+    git checkout .
+    
+##### git add 명령으로 stage에 올린 경우
+>   
+    git reset
