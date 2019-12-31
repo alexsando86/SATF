@@ -34,12 +34,37 @@
 3. create-react-app 으로 만든 프로젝트는 기본적으로 .git 설정도 되어있는데요, yarn eject 는 아직 git 에 커밋되지 않은 변화가 있다면 진행이 되지 않으니, 먼저 커밋을 해주어야 합니다.
 > 
     yarn eject
+    
+> 이번프로젝트에서는 yarn eject 하지 않음.
+
 <hr />
 
 ### TweenMax
 - Install: https://greensock.com/docs/v3/Installation#npm
 
-### Git 
+### 작업순서
+1. 본인 branch를 만든다.
+    >   
+        git branch <branchname>
+2. 만들어진 branch로 이동
+    >   
+        git checkout <branchname>
+3. 아래 명령어로 현재 브랜치 위치 확인 (현재브랜치에 * 표시가 됨.)
+    >   
+        git branch
+4. 확인 완료 되면 해당 브랜치에서 작업을 진행.
+5. 작업 완료 후 아래와 같이 작업을 commit -p 한다.
+    - Stage this hunkpy,n,q,a,d,s,e]? 
+        + y:hunk를 스테이지에 올림
+        + n:hunk를 스테이지에 올리지않음
+        + q:종료
+    >   
+        git add -p
+        git commit -m "commit message"
+        
+<hr />
+
+### Git Tutorial
 - https://backlog.com/git-tutorial/kr/
 - https://learngitbranching.js.org/
 ##### 브랜치 만들기
