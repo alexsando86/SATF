@@ -61,7 +61,13 @@
     >   
         git add -p
         git commit -m "commit message"
-        
+6. 브랜치를 master로 변경 후 브랜치를 합친다.
+    >   
+        git checkout master
+        git merger <branchname>
+7. master에서 최종 push 해서 git에 반영.
+    >   
+        git push
 <hr />
 
 ### Git Tutorial
