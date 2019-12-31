@@ -2,16 +2,16 @@ import React from 'react';
 
 class Aside extends React.Component {
     render() {
-        const { currentState, hideContols } = this.props;
+        const { currentState, onCreateHide } = this.props;
         return(
-            <div className={currentState === true ? 'aside active' : 'aside' }>
+            <div className={currentState.visible === true ? 'aside active' : 'aside' }>
                 <ul className="aside_ctg">
                     <li>Button</li>
                     <li>Loading</li>
                     <li>Festival</li>
                     <li>Snow</li>
                 </ul>
-                <button type="button" className="aside_close" onClick={hideContols}><span className="blind">닫기</span></button>
+                <button type="button" className="aside_close" onClick={onCreateHide}><span className="blind">닫기</span></button>
             </div>
         )
     }

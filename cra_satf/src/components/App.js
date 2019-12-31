@@ -8,7 +8,7 @@ class App extends React.Component {
         visible: false,
     };
 
-    displayToggleControl = () => {
+    handleToggleControl = () => {
         this.setState({
             visible: !this.state.visible,
         })
@@ -17,9 +17,9 @@ class App extends React.Component {
     render() {
         return(
             <div className="App">
-                <Header showControls={this.displayToggleControl} />
+                <Header onCreateShow={this.handleToggleControl} />
                 <section className="container">
-                    <Aside currentState={this.state.visible} hideContols={this.displayToggleControl}/>
+                    <Aside currentState={this.state} onCreateHide={this.handleToggleControl}/>
                 </section>
             </div>
         )
