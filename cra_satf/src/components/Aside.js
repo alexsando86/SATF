@@ -10,6 +10,38 @@ class Aside extends React.Component {
                     <li>Loading</li>
                     <li>Festival</li>
                     <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
+                    <li>Button</li>
+                    <li>Loading</li>
+                    <li>Festival</li>
+                    <li>Snow</li>
                 </ul>
                 <button type="button" className="aside_close" onClick={onCreateHide}><span className="blind">닫기</span></button>
             </div>
