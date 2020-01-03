@@ -99,6 +99,7 @@
 -  `componentDidMount()`
     + 컴포넌트가 만들어지고 `render`가 호출된 이후에 호출되는 메소드.
     + 주로 D3, masonry 처럼 DOM 을 사용해야하는 외부 라이브러리 연동을 하거나, 해당 컴포넌트에서 필요로하는 데이터를 요청하기 위해 axios, fetch 등을 통하여 ajax 요청을 하거나, DOM 의 속성을 읽거나 직접 변경하는 작업을 진행
+
 #### 컴포넌트 업데이트
 - `componentWillReceiveProps(nextProps)`
     + 컴포넌틑 생성후 첫 렌더링을 마친 후 호출되는 메소드
@@ -128,6 +129,7 @@
     + 이 시점에선 this.props 와 this.state 가 바뀌어있음. 
     + 파라미터를 통해 이전의 값인 prevProps 와 prevState 를 조회 할 수 있음.
     + getSnapshotBeforeUpdate 에서 반환한 snapshot 값은 세번째 값으로 받아온다.
+    
 #### 컴포넌트 제거
 - `componentWillUnmount()`
     + 컴포넌트가 소멸된 시점에(DOM에서 삭제된 후) 실행되는 메소드.
