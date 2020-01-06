@@ -4,6 +4,9 @@ import Aside from "./Aside";
 import Header from "./Header";
 
 class App extends React.Component {
+    componentDidMount(){
+        console.log('DiDMount')
+    }
 
     state = {
         visible: false,
