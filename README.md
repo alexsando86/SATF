@@ -74,6 +74,14 @@
 ### Git Tutorial
 - https://backlog.com/git-tutorial/kr/
 - https://learngitbranching.js.org/
+
+### Git Flow
+- master
+- release : 최종 master로 merge.
+     + 최종검수 및 수정사항들에 대한처리 후 master와 develop에 merge
+- develop : master에서 가져온 branch
+- feature : local작업 후 develop에 merge
+
 ##### 브랜치 만들기
 >   
     git branch <branchname>
