@@ -2,10 +2,11 @@ import React from 'react';
 import '../styles/common.scss';
 import Aside from "./Aside";
 import Header from "./Header";
+import IScroll from 'iscroll';
 
 class App extends React.Component {
     componentDidMount(){
-        console.log('DiDMount')
+        console.log('DiDMount', IScroll)
     }
 
     state = {
