@@ -1,6 +1,11 @@
 import React from 'react';
 
 class Aside extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
+
     render() {
         const { currentState, onCreateHide } = this.props;
         return(
