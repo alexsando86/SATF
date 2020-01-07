@@ -74,7 +74,7 @@
         git checkout develop
         git merger <branchname>
 7. develop에서 최종 push 해서 git에 반영.
-8. 반영후 develop에서 release로 merge.
+8. 반영후 develop => release로 merge `*release : git merge develop`
 9. 만약 release에 최종검수시 수정사항이 있다면 수정 후 develop에 merge
 10. 최종 release는 master로 pull request.
 <hr />
