@@ -40,7 +40,7 @@ class App extends React.Component {
                 <Header onCreateShow={this.handleToggleControl} />
                 <section className="container">
                     <Aside currentState={this.state} onCreateHide={this.handleToggleControl} />
-                    <div ref={this.circleRef} style={this.style}></div>
+                    <div ref={this.circleRef} style={this.style}>11</div>
                 </section>
             </div>
         )
