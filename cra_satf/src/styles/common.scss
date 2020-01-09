@@ -84,8 +84,24 @@
   }
 }
 
-.rect_test {
-  width: 100px;
-  height: 100px;
-  background: #e4ff00;
+.test_conts {
+  text-align: center;
+  .btn_test {
+    padding: 7px 10px;
+    background: #fff;
+    color: #222;
+    border: 1px solid #222;
+    border-radius: 15px;
+    text-align: center;
+    &:hover {
+      background: #222;
+      color: #fff;
+    }
+  }
+  .rect_test {
+    margin: 0 auto 10px;
+    width: 100px;
+    height: 100px;
+    background: #e4ff00;
+  }
 }
