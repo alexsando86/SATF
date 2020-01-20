@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/common.scss';
 import Aside from './Aside';
 import Header from './Header';
-import ImageTransform from './ImageTransform';
+import ButtonComp from './ButtonComp';
 import { gsap } from 'gsap';
 
 class App extends React.Component {
@@ -47,7 +47,7 @@ class App extends React.Component {
           <div ref={this.circleRef} style={this.style}>
             11
           </div>
-          <ImageTransform />
+          <ButtonComp />
         </section>
       </div>
     );
