@@ -104,4 +104,19 @@
     height: 100px;
     background: #e4ff00;
   }
+
+  .btn {
+    display: block;
+    margin: 10px auto 10px;
+    &.ty_btn1 {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      color: #7d7d7d;
+      background-color: #fff;
+      border: 1px solid #7d7d7d;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
 }
