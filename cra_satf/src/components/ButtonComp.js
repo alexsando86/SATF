@@ -1,5 +1,10 @@
-import React from 'react';
+import React from 'e';
 import { gsap } from 'gsap';
+
+//1. 내장모듈 (fs, path...)
+//2. 디펜던시 (node 디펜던시)
+//3. 상대경로 (../)
+
 // import tweenmax from 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js';
 
 class ButtonComp extends React.Component {
