@@ -5,7 +5,7 @@ import Header from './Header';
 // import ButtonComp from '../pages/ButtonComp';
 import { gsap } from 'gsap';
 import { Route, Switch } from 'react-router-dom';
-import { CounterComp, ButtonComp } from 'pages';
+import { CounterComp, ButtonComp, ImageComp } from 'pages';
 
 class App extends React.Component {
   state = {
@@ -46,6 +46,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/CounterComp/:name" component={CounterComp} />
             <Route path="/ButtonComp" component={ButtonComp} />
+            <Route path="/ImageComp" component={ImageComp} />
           </Switch>
 
           <Aside
@@ -56,6 +57,7 @@ class App extends React.Component {
             11
           </div>
           <ButtonComp />
+          <ImageComp />
         </section>
       </div>
     );
