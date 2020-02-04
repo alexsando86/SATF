@@ -2,8 +2,10 @@ import React from 'react';
 import '../styles/common.scss';
 import Aside from './Aside';
 import Header from './Header';
-import ButtonComp from './ButtonComp';
+// import ButtonComp from '../pages/ButtonComp';
 import { gsap } from 'gsap';
+import { Route, Switch } from 'react-router-dom';
+import { CounterComp, ButtonComp } from 'pages';
 
 class App extends React.Component {
   state = {
@@ -40,6 +42,12 @@ class App extends React.Component {
       <div className="App">
         <Header onCreateShow={this.handleToggleControl} />
         <section className="container">
+          <Route exact path="/" component={CounterComp} />
+          <Switch>
+            <Route path="/CounterComp/:name" component={CounterComp} />
+            <Route path="/ButtonComp" component={ButtonComp} />
+          </Switch>
+
           <Aside
             currentState={this.state}
             onCreateHide={this.handleToggleControl}
