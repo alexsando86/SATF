@@ -28,6 +28,11 @@ class Aside extends React.Component {
               Counter
             </NavLink>
           </li>
+          <li>
+            <Link to="/ImageComp" onClick={onCreateHide}>
+              Image
+            </Link>
+          </li>
           <li>Loading</li>
           <li>Festival</li>
           <li>Snow</li>

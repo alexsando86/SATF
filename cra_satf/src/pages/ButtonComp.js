@@ -1,4 +1,4 @@
-import React from 'e';
+import React from 'react';
 import { gsap } from 'gsap';
 
 //1. 내장모듈 (fs, path...)

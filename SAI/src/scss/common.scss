@@ -1,0 +1,120 @@
+@import "./reset.scss";
+
+.contents {
+	width: 100%;
+	height: 100%;
+}
+
+.header_top {
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	padding: 14px 30px;
+	background: #000;
+	.btn_menu {
+		box-sizing: border-box;
+		.btn_aside {
+			position: relative;
+			width: 25px;
+			height: 25px;
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 3px;
+				background: #fff;
+				box-shadow: 0 0 0 #fff, 0 9px 0 #fff, 0 18px 0 #fff;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+	}
+	h2 {
+		display: inline-block;
+		color: #fff;
+		line-height: 17px;
+		font-size: 20px;
+		margin-left: 20px;
+	}
+}
+
+.aside {
+	position: fixed;
+	left: -100%;
+	top: 0;
+	width: 80%;
+	height: 100%;
+	background: #4a4a4a;
+	box-shadow: 5px 0 5px #ccc;
+	transition: 0.3s;
+	&.active {
+		left: 0;
+	}
+	&_ctg {
+		li {
+			display: block;
+			line-height: 25px;
+			font-size: 15px;
+			color: #fff;
+			margin: 8px;
+			a {
+				display: block;
+				line-height: 25px;
+				font-size: 15px;
+				color: #fff;
+			}
+		}
+	}
+	.aside_close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 25px;
+		height: 25px;
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 12px;
+			height: 1px;
+			background: #fff;
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+		&:after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+}
+
+.main_menu {
+	position: relative;
+	ul {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 0;
+		margin-top: 100px;
+		li {
+			display: inline-block;
+			width: 220px;
+			height: 250px;
+			background: #ffde00;
+			border-radius: 10%;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			&:last-child {
+				margin-right: 0;
+			}
+			a {
+				width: 100%;
+				height: 100%;
+				display: block;
+				font-size: 15px;
+				text-align: center;
+			}
+		}
+	}
+}

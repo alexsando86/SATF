@@ -120,3 +120,41 @@
     }
   }
 }
+
+.imageContent {
+  .img_container {
+    position: relative;
+    margin: 30px auto;
+    overflow: hidden;
+    width: 300px;
+    height: 400px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .uncover {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .uncover_slice {
+      flex-grow: 1;
+      height: 100%;
+      background: #e1e1e1;
+    }
+  }
+  .btn_act_wrap {
+    margin: 10px auto;
+    text-align: center;
+  }
+  .btn_act {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #333;
+    border-radius: 4px;
+  }
+}
