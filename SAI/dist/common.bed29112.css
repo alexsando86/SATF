@@ -1,0 +1,320 @@
+@charset "UTF-8";
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+textarea,
+p,
+blockquote,
+th,
+td,
+input,
+select,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+th,
+td,
+input,
+select,
+textarea,
+button {
+  font-size: 14px;
+  font-family: "AppleSDGothicNeo-Regular", sans-serif;
+  color: #000;
+}
+
+fieldset,
+img {
+  border: 0 none;
+}
+
+dl,
+ul,
+ol,
+menu,
+li {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: "none";
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: 100%;
+  vertical-align: middle;
+}
+
+button {
+  border: 0 none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active,
+a:hover {
+  text-decoration: none;
+}
+
+.blind {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  line-height: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  clip: rect(0, 0, 0, 0);
+}
+
+.blind:before {
+  display: block;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  content: " ";
+}
+
+caption {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin-top: -1px;
+  padding: 0;
+  font-size: 1px;
+  line-height: 0;
+  color: transparent;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+caption.blind {
+  position: static;
+  margin: -1px 0 0;
+}
+
+caption.blind:before {
+  display: none;
+}
+
+caption .blind {
+  position: static;
+}
+
+caption .blind:before {
+  display: none;
+}
+
+.sr_toggle .sr_off {
+  display: block;
+}
+
+.sr_toggle .sr_on {
+  display: none;
+}
+
+.sr_toggle.on .sr_off {
+  display: none;
+}
+
+.sr_toggle.on .sr_on {
+  display: block;
+}
+
+.skip_navi {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  color: #fff;
+  text-align: center;
+}
+
+.skip_navi:focus,
+.skip_navi:active {
+  width: 100%;
+  height: auto;
+  padding: 5px 0;
+  background: #f84e64;
+}
+
+.contents {
+  width: 100%;
+  height: 100%;
+}
+
+.header_top {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 14px 30px;
+  background: #000;
+}
+.header_top .btn_menu {
+  box-sizing: border-box;
+}
+.header_top .btn_menu .btn_aside {
+  position: relative;
+  width: 25px;
+  height: 25px;
+}
+.header_top .btn_menu .btn_aside:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  box-shadow: 0 0 0 #fff, 0 9px 0 #fff, 0 18px 0 #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.header_top h2 {
+  display: inline-block;
+  color: #fff;
+  line-height: 17px;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.aside {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  background: #4a4a4a;
+  box-shadow: 5px 0 5px #ccc;
+  transition: 0.3s;
+}
+.aside.active {
+  left: 0;
+}
+.aside_ctg li {
+  display: block;
+  line-height: 25px;
+  font-size: 15px;
+  color: #fff;
+  margin: 8px;
+}
+.aside_ctg li a {
+  display: block;
+  line-height: 25px;
+  font-size: 15px;
+  color: #fff;
+}
+.aside .aside_close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+}
+.aside .aside_close:before, .aside .aside_close:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: #fff;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.aside .aside_close:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.main_menu {
+  position: relative;
+}
+.main_menu ul {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0;
+  margin-top: 100px;
+}
+.main_menu ul li {
+  display: inline-block;
+  width: 220px;
+  height: 250px;
+  background: #ffde00;
+  border-radius: 10%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.main_menu ul li:last-child {
+  margin-right: 0;
+}
+.main_menu ul li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  font-size: 15px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=/common.bed29112.css.map */

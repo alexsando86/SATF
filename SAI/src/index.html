@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="./common.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/common.scss" />
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./common.js"></script>
+  <script src="./js/animation.js"></script>
+    <!-- CDN TweenMax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  
+  <!-- CDN TweenLite, CSSPluginm, EasePack  -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/plugins/CSSPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/easing/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/TweenLite.min.js"></script> -->
 </head>
 <body>
-    Parcel Test!!!
+  <div class="contents">
+    <header class="header_top">
+      <div class="btn_menu">
+        <button type="button" class="btn_aside" >
+          <span class="blind">메뉴</span>
+        </button>
+        <h2>Ssg Animation Index</h2>
+      </div>
+    </header>
+
+    <section class="main_menu">
+      <ul class="main_menu_lst">
+        <li><a href="#">프로모션1</a></li>
+        <li><a href="#">프로모션2</a></li>
+        <li><a href="#">프로모션3</a></li>
+        <li><a href="#">프로모션4</a></li>
+        <li><a href="#">애니메이션1</a></li>
+        <li><a href="#">애니메이션2</a></li>
+        <li><a href="#">애니메이션3</a></li>
+        <li><a href="#">애니메이션4</a></li>
+      </ul>
+    </section>
+  <div>
 </body>
 </html>
