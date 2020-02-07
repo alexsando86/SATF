@@ -184,29 +184,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/common.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-module.exports = {
-  "blind": "blind",
-  "sr_toggle": "sr_toggle",
-  "sr_off": "sr_off",
-  "sr_on": "sr_on",
-  "on": "on",
-  "skip_navi": "skip_navi",
-  "contents": "contents",
-  "header_top": "header_top",
-  "btn_menu": "btn_menu",
-  "btn_aside": "btn_aside",
-  "aside": "aside",
-  "active": "active",
-  "aside_ctg": "aside_ctg",
-  "aside_close": "aside_close",
-  "main_menu": "main_menu"
-};
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -411,4 +389,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/common.bed29112.js.map
+//# sourceMappingURL=/component/test_nayeon.js.map
