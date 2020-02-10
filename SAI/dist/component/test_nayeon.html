@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <!-- CDN TweenMax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  
+	
+  <style>#animate2 {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 0, 0, 0.5);
+    }
+		.bg {
+			width: 100%;
+			height: 300px;
+			background: #eee;
+		}</style>
+  <!-- CDN TweenLite, CSSPluginm, EasePack  -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/plugins/CSSPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/easing/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/TweenLite.min.js"></script> -->
+</head>
+<body>
+  <div class="contents">
+    <header class="header_top">
+      <div class="btn_menu">
+        <button type="button" class="btn_aside">
+          <span class="blind">메뉴</span>
+        </button>
+        <h2>Ssg Animation Index</h2>
+      </div>
+    </header>
+
+
+    <section class="section">
+      <div id="animate2"></div>
+			<div class="bg"></div>
+			<div class="bg"></div>
+			<div class="bg"></div>
+			<div class="bg"></div>
+			<div class="bg"></div>
+			<div class="bg"></div>
+			<div class="bg"></div>
+    </section>
+  <div>
+  <script>var controller = new ScrollMagic.Controller();
+var tl = new TimelineMax();
+var scene = new ScrollMagic.Scene({
+  triggerElement: "#trigger",
+  duration: 800
+}).setTween(tl.to("#animate2", 1, {
+  position: "fixed",
+  borderRadius: "100%",
+  backgroundColor: "purple",
+  scale: 0.1,
+  y: "-270px"
+}, 0)).setTween(tl.to("#animate2", 1, {
+  x: "150%"
+}, 1)).addIndicators({
+  name: "(duration: 800)"
+}).addTo(controller);</script>
+</div></div></body>
+</html>
