@@ -42,6 +42,13 @@
 ### TweenMax
 - Install: https://greensock.com/docs/v3/Installation#npm
 
+### Git Flow
+- master
+- release : 최종 master로 merge.
+     + 최종검수 및 수정사항들에 대한처리 후 master와 develop에 merge
+- develop : master에서 가져온 branch
+- feature : local작업 후 develop에 merge
+
 ### 작업순서
 1. 본인 branch를 만든다.
     >   
@@ -62,18 +69,20 @@
     >   
         git add -p
         git commit -m "commit message"
-6. 브랜치를 master로 변경 후 브랜치를 합친다.
+6. 브랜치를 develop로 변경 후 브랜치를 합친다.
     >   
-        git checkout master
+        git checkout develop
         git merger <branchname>
-7. master에서 최종 push 해서 git에 반영.
-    >   
-        git push
+7. develop에서 최종 push 해서 git에 반영.
+8. 반영후 develop => release로 merge `*release : git merge develop`
+9. 만약 release에 최종검수시 수정사항이 있다면 수정 후 develop에 merge
+10. 최종 release는 master로 pull request.
 <hr />
 
 ### Git Tutorial
 - https://backlog.com/git-tutorial/kr/
 - https://learngitbranching.js.org/
+
 ##### 브랜치 만들기
 >   
     git branch <branchname>

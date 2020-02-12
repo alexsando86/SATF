@@ -6,3 +6,4 @@ const enableArray = () => {
   }, 0);
 };
 console.log(enableArray());
+console.log("parcel");
