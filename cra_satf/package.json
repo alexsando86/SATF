@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^7.1.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
+
     "gsap": "^3.0.4",
     "node-sass": "^4.13.0",
     "query-string": "^6.10.1",
+
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
@@ -46,6 +48,8 @@
     ]
   },
   "devDependencies": {
+
     "cross-env": "^7.0.0"
+
   }
 }
