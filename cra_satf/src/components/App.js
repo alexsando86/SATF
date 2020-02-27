@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/common.scss';
 import Aside from './Aside';
 import Header from './Header';
+
 // import ButtonComp from '../pages/ButtonComp';
 import { gsap } from 'gsap';
 import { Route, Switch } from 'react-router-dom';
@@ -24,12 +25,6 @@ class App extends React.Component {
       backgroundColor: 'red',
     });
   }
-
-  handleToggleControl = () => {
-    this.setState({
-      visible: !this.state.visible,
-    });
-  };
   style = {
     border: '1px solid #000',
     borderRadius: '20px',
@@ -37,11 +32,6 @@ class App extends React.Component {
     height: '100px',
     margin: 'auto',
   };
-  render() {
-    return (
-      <div className="App">
-        <Header onCreateShow={this.handleToggleControl} />
-        <section className="container">
           <Route exact path="/" component={CounterComp} />
           <Switch>
             <Route path="/CounterComp/:name" component={CounterComp} />
@@ -49,15 +39,13 @@ class App extends React.Component {
             <Route path="/ImageComp" component={ImageComp} />
           </Switch>
 
-          <Aside
-            currentState={this.state}
-            onCreateHide={this.handleToggleControl}
-          />
+
           <div ref={this.circleRef} style={this.style}>
             11
           </div>
           <ButtonComp />
           <ImageComp />
+
         </section>
       </div>
     );
