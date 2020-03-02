@@ -20,7 +20,7 @@
     .light {position:absolute;bottom:-40px;left:50%;margin-left:-60px;transform:scale(0.7)}
     .water_drop {position:relative;}
     .rain_cloud {position:relative; z-index: 1}
-    .rain_wd {position:absolute;left:0;bottom:0px;transform:scale(.5)}
+    .rain_wd {position:absolute;left:0;bottom:-5px;transform:scale(.5)}
     .rain_wd.rwd1 {left:30px;}
     .rain_wd.rwd2 {left:50px;}
     .rain_wd.rwd3 {left:70px;}
@@ -165,7 +165,8 @@
     var waterCloud = document.querySelector('.rain_cloud');
     var water_drop = document.querySelectorAll('.rain_wd');
     var waterCloudTl = gsap.timeline({
-      repeat: -1
+      repeat: -1,
+      repeatDelay: 1
     });
     var waterDropTl = gsap.timeline({
       repeat: -1,
@@ -173,6 +174,9 @@
     }); // waterCloudTl.to(waterCloud, 2, {y:10}).to(waterCloud, 2, {y:0});
 
     waterDropTl.to(water_drop, 0.4, {
+      autoAlpha: 1,
+      y: 0
+    }).to(water_drop, 0.4, {
       autoAlpha: 0,
       y: 10,
       stagger: 0.5
