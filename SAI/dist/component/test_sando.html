@@ -27,7 +27,13 @@
     .rain_cloud {}
     .wind_box {position:relative}
     .wind_box .cloud2 {}
-    .wind_box .wind {position:absolute;left:15px;bottom:0px;transform:scale(0.5)}</style>
+    .wind_box .wind {position:absolute;left:15px;bottom:0px;transform:scale(0.5)}
+    .rainbox {position:relative;}
+    .rain {width:5px;height:30px;border-radius:5px;background:#000;display:inline-block;}
+    .rain {position: absolute;bottom:20px;}
+    .rain1 {left:45px}
+    .rain2 {left:65px;}
+    .rain3 {left:85px;}</style>
 </head>
 <body>
   <div class="contents">
@@ -66,6 +72,12 @@
           <img src="/cloud2.8e9e33ea.png" class="cloud2" alt="">
           <img src="/wind.548de655.png" class="wind" alt="">
         </div>
+        <div class="rainbox">
+          <img src="/cloud2.8e9e33ea.png" class="cloud2" alt="">
+          <span class="rain rain1"></span>
+          <span class="rain rain2"></span>
+          <span class="rain rain3"></span>
+        </div>
       </div>
     </section>
   <div>
@@ -81,6 +93,7 @@
     this.lightning();
     this.waterDrop();
     this.wind();
+    this.rain();
   },
   sun: function sun() {
     var sun = document.querySelector('.sun img');
@@ -203,8 +216,44 @@
     }).to(wind, 2, {
       x: 0
     }, "+=0.5");
+  },
+  rain: function rain() {
+    var rainCloud = document.querySelector('.rainbox .cloud2');
+    var rain = document.querySelectorAll('.rain');
+    var rainCloudTl = gsap.timeline({
+      repeat: -1
+    });
+    var rainTl = gsap.timeline({
+      repeat: -1
+    });
+    rainCloudTl.to(rainCloud, 2, {
+      y: -10
+    }).to(rainCloud, 2, {
+      y: 0
+    });
+    rainTl.fromTo(rain, 0.5, {
+      rotate: 26,
+      x: 0,
+      y: -5,
+      autoAlpha: 0,
+      height: 0,
+      transformOrigin: "bottom"
+    }, {
+      rotate: 26,
+      x: -13,
+      y: 10,
+      autoAlpha: 1,
+      height: 30,
+      stagger: 0.5,
+      transformOrigin: "bottom"
+    });
   }
 };
 weather.init();</script>
+
+    <canvas id="snowbg" style="width:100%;height:500px"></canvas>
+    <script>window.addEventListener('load', function () {
+  var canvas = document.getElementById('snowbg');
+});</script>
 </div></div></body>
 </html>
