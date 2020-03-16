@@ -29,11 +29,15 @@
     .wind_box .cloud2 {}
     .wind_box .wind {position:absolute;left:15px;bottom:0px;transform:scale(0.5)}
     .rainbox {position:relative;}
-    .rain {width:5px;height:30px;border-radius:5px;background:#000;display:inline-block;}
-    .rain {position: absolute;bottom:20px;}
+    .rain {width:5px;height:0;border-radius:5px;background:#000;display:inline-block;}
+    .rain {position: absolute;bottom:20px;transform:rotate(26deg)}
     .rain1 {left:45px}
     .rain2 {left:65px;}
-    .rain3 {left:85px;}</style>
+    .rain3 {left:85px;}
+    .logo {position:relative;}
+    p[class^="logo_txt"] {overflow:hidden;position:absolute;left:0;top:0;width:252px;height:69px;text-align:center;display:none;}
+    p.logo_txt3, p.logo_txt4, p.logo_txt5{ display: block;}
+    p.logo_txt3 img {display: block;margin:0 auto;}</style>
 </head>
 <body>
   <div class="contents">
@@ -79,12 +83,20 @@
           <span class="rain rain3"></span>
         </div>
       </div>
+      <div class="logo">
+        <p class="logo_txt0"><img src="/ssg.ab4e914c.png" alt=""></p>
+        <p class="logo_txt1"><img src="/ssgcom1.4837f062.png" alt=""></p>
+        <p class="logo_txt2"><img src="/ssgcom2.7b0f878f.png" alt=""></p>
+        <p class="logo_txt3">
+          <img src="/ssgk1.e8413a33.png" class="k1" alt="">
+          <img src="/ssgk2.f0be18a7.png" class="k2" alt="">
+          <img src="/ssgk3.818fc8ac.png" class="k3" alt="">
+        </p>
+        <p class="logo_txt6"><img src="/ssgk4.f98bc8b9.png" alt=""></p>
+      </div>
     </section>
   <div>
     <script>var weather = {
-  ease: {
-    none: "none"
-  },
   init: function init() {
     this.sun();
     this.cloud();
@@ -231,29 +243,72 @@
     }).to(rainCloud, 2, {
       y: 0
     });
-    rainTl.fromTo(rain, 0.5, {
-      rotate: 26,
-      x: 0,
-      y: -5,
-      autoAlpha: 0,
-      height: 0,
-      transformOrigin: "bottom"
-    }, {
-      rotate: 26,
-      x: -13,
+    rainTl.to(rain, 0.5, {
       y: 10,
       autoAlpha: 1,
       height: 30,
       stagger: 0.5,
-      transformOrigin: "bottom"
+      ease: "Power0.easeNone",
+      transformOrigin: "left top"
     });
   }
 };
 weather.init();</script>
 
-    <canvas id="snowbg" style="width:100%;height:500px"></canvas>
-    <script>window.addEventListener('load', function () {
-  var canvas = document.getElementById('snowbg');
-});</script>
+    <script>var logo = {
+  init: function init() {
+    this.elements();
+    this.logotxt();
+  },
+  elements: function elements() {
+    this.k1 = document.querySelector('.k1');
+    this.k2 = document.querySelector('.k2');
+    this.k3 = document.querySelector('.k3');
+    this.k1Tl = gsap.timeline();
+    this.k2Tl = gsap.timeline();
+    this.k3Tl = gsap.timeline();
+  },
+  logotxt: function logotxt() {
+    this.k1Tl.to(this.k1, {
+      x: -65,
+      delay: 1
+    }).to(this.k1, {
+      y: 20
+    }).to(this.k1, {
+      x: -32
+    });
+    this.k2Tl.to(this.k2, {
+      x: 0,
+      delay: 1
+    }).to(this.k2, {
+      autoAlpha: 1
+    }).to(this.k2, {
+      autoAlpha: 0
+    });
+    this.k3Tl.to(this.k3, {
+      x: 65,
+      delay: 1
+    }).to(this.k3, {
+      y: -20
+    }).to(this.k3, {
+      x: 33
+    }).set([logo.k1, logo.k2, logo.k3], {
+      autoAlpha: 0
+    }, "+=1").set('.logo_txt0', {
+      y: -10,
+      display: "block"
+    });
+  },
+  complete: function complete() {
+    gsap.set([logo.k1, logo.k2, logo.k3], {
+      autoAlpha: 0
+    });
+    gsap.set('.logo_txt0', {
+      display: "block"
+    });
+  }
+};
+logo.init();</script>
+
 </div></div></body>
 </html>
