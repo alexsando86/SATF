@@ -41,14 +41,14 @@ const btnProgress = {
 			num = { var: startCount },
 			numbers = document.getElementById("counter");
 
-		btnOrderTm1.to(btnOrder, 0.7, { width: 100, height: 100, borderRadius: "100%", ease: "none" });
-		btnOrderTm1.to(btnOrderWrap, 0.7, { width: 100, height: 100, ease: "none" });
-		btnOrderTm1.to(btnOrderTxt, 0.7, { fontSize: 13, top: 24, ease: "none" });
-		btnOrderTm1.to(btnOrderPer, 0.7, { fontSize: 25, top: 38, ease: "none" });
-		btnOrderTm1.to(btnOrderStatus, 0.7, { width: 100, top: 0, left: 0, onComplete: countIt, ease: "none" });
+		btnOrderTm1.to(btnOrder, 0.5, { width: 100, height: 100, borderRadius: "100%", ease: "none" });
+		btnOrderTm1.to(btnOrderWrap, 0.5, { width: 100, height: 100, ease: "none" });
+		btnOrderTm1.to(btnOrderTxt, 0.5, { fontSize: 13, top: 24, ease: "none" });
+		btnOrderTm1.to(btnOrderPer, 0.5, { fontSize: 25, top: 38, onComplete: countIt, ease: "none" });
 
 		function countIt() {
-			TweenMax.to(num, tm, { var: 100, onUpdate: changeNumber, onComplete: completeHandler, ease: Linear.easeNone });
+			btnOrderTm1.to(btnOrderStatus, tm, { width: 100, top: 0, left: 0, ease: "none" });
+			btnOrderTm1.to(num, tm, { var: 100, onUpdate: changeNumber, onComplete: completeHandler, ease: Linear.easeNone });
 		}
 
 		function changeNumber() {
