@@ -119,24 +119,125 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/animation.js":[function(require,module,exports) {
 $(function () {
-  var timeLine = new TimelineMax();
-  timeLine.staggerFrom(".main_menu_lst li", 1, {
-    left: "90%",
-    scale: 0.2,
-    ease: Power3.easeOut
-  }, 0.15);
-  $(".main_menu_lst li").hover(function () {
-    TweenMax.to($(this), 0.2, {
-      left: "90%",
-      scale: "1.1"
-    });
-  }, function () {
-    TweenMax.to($(this), 0.2, {
-      left: "90%",
-      scale: "1"
-    });
+  var timeLine = new TimelineMax(); // timeLine.staggerFrom(".main_menu_lst li", 1, { left: "90%", scale: 0.2, ease: Power3.easeOut }, 0.15);
+  // $(".main_menu_lst li").hover(
+  // 	function() {
+  // 		TweenMax.to($(this), 0.2, { left: "90%", scale: "1.1" });
+  // 	},
+  // 	function() {
+  // 		TweenMax.to($(this), 0.2, { left: "90%", scale: "1" });
+  // 	}
+  // );
+
+  var btnClick = false;
+  $(".btn_order").on({
+    click: function click() {
+      if (!btnClick) {
+        btnClick = true;
+        btnProgress.init();
+      }
+    }
   });
 });
+var btnProgress = {
+  init: function init() {
+    this.progress();
+  },
+  progress: function progress() {
+    var btnOrder = document.querySelector(".btn_order");
+    var btnOrderWrap = document.querySelector(".btn_order_wrap");
+    var btnOrderTxt = document.querySelector(".btn_order_txt");
+    var btnOrderPer = document.querySelector(".btn_order_per");
+    var btnOrderStatus = document.querySelector(".per_status");
+    var btnOrderCheck = document.querySelector(".complete_check");
+    var btnOrderTm1 = TweenMax;
+    var btnOrderTl1 = gsap.timeline();
+    var startCount = 0,
+        tm = 0.8,
+        num = {
+      var: startCount
+    },
+        numbers = document.getElementById("counter");
+    btnOrderTm1.to(btnOrder, 0.5, {
+      width: 100,
+      height: 100,
+      borderRadius: "100%",
+      ease: "none"
+    });
+    btnOrderTm1.to(btnOrderWrap, 0.5, {
+      width: 100,
+      height: 100,
+      ease: "none"
+    });
+    btnOrderTm1.to(btnOrderTxt, 0.5, {
+      fontSize: 13,
+      top: 24,
+      ease: "none"
+    });
+    btnOrderTm1.to(btnOrderPer, 0.5, {
+      fontSize: 25,
+      top: 38,
+      onComplete: countIt,
+      ease: "none"
+    });
+
+    function countIt() {
+      btnOrderTm1.to(btnOrderStatus, tm, {
+        width: 100,
+        top: 0,
+        left: 0,
+        ease: "none"
+      });
+      btnOrderTm1.to(num, tm, {
+        var: 100,
+        onUpdate: changeNumber,
+        onComplete: completeHandler,
+        ease: Linear.easeNone
+      });
+    }
+
+    function changeNumber() {
+      numbers.innerHTML = num.var.toFixed();
+    }
+
+    function completeHandler() {
+      btnOrderTm1.fromTo(btnOrder, 0.3, {
+        scale: 0.9,
+        yoyo: true,
+        repeat: 3
+      }, {
+        scale: 1.1,
+        yoyo: true,
+        onComplete: active2,
+        repeat: 3
+      });
+    }
+
+    function active2() {
+      btnOrderTm1.to(btnOrderTxt, {
+        opacity: 0
+      });
+      btnOrderTm1.to(btnOrderPer, {
+        opacity: 0
+      });
+      btnOrderTm1.to(btnOrderStatus, 0.3, {
+        backgroundColor: "#009836"
+      });
+      btnOrderTm1.to(btnOrder, 0.3, {
+        width: 130,
+        height: 50,
+        borderRadius: "24px",
+        backgroundColor: "#009836"
+      });
+      btnOrderTl1.to(btnOrderCheck, 0.5, {
+        display: "block",
+        height: 15
+      }).to(btnOrderCheck, 1, {
+        width: 25
+      });
+    }
+  }
+};
 },{}],"C:/Users/user/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -165,7 +266,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52465" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56062" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
