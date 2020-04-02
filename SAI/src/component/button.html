@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Button</title>
+  <link rel="stylesheet" href="../scss/common.scss" />
+</head>
+<body>
+	<div class="hamburger">
+		<div class="hamburger_grid">
+			<a href="#" class="menu ham1">
+				<span></span>
+				<span></span>
+				<span></span>
+			</a>
+			<a href="#" class="menu ham2">
+				<span></span>
+				<span></span>
+				<span></span>
+			</a>
+			<a href="#" class="menu ham3">
+				<span></span>
+				<span></span>
+				<span></span>
+			</a>
+			<a href="#" class="menu ham4">
+				<span></span>
+				<span></span>
+				<span></span>
+			</a>
+			<a href="#" class="menu ham5">
+				<span></span>
+				<span></span>
+				<span></span>
+			</a>
+		</div>
+	</div>
+	<script>
+		const hamMenu = document.querySelector('.hamburger_grid');
+		hamMenu.addEventListener('click', function(e){
+			let elem = e.target;
+
+			while(!elem.classList.contains('menu')) {
+				elem = elem.parentNode;
+				if(elem.tagName === 'BODY') {
+					elem = null;
+					return;
+				}
+			}
+			elem.classList.toggle('active')
+		})
+	</script>
+</body>
+</html>
