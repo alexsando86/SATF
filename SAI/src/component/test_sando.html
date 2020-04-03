@@ -274,7 +274,7 @@
         <h1>The cat and the hat.</h1>
       </div>
 
-      <div class="hamburger closed">
+      <div class="hamburger_ring closed">
         <div class="burger_line">
           <span class="ham1"></span>
           <span class="ham2"></span>
@@ -293,7 +293,7 @@
       </div>
 
       <style>
-        .hamburger {
+        .hamburger_ring {
           position:relative;
           left: 50%;
           margin-left:-34px;
@@ -381,16 +381,16 @@
           bottom:0;
           transform-origin: 34px 2px;
         }
-        .hamburger.opened .ham1 {animation:ham1Rotate .65s;animation-fill-mode:forwards;}
-        .hamburger.opened .ham2 {animation:hamRound-in .65s;animation-fill-mode:forwards;}
-        .hamburger.opened .ham3 {animation:ham2Rotate .65s;animation-fill-mode:forwards;}
+        .hamburger_ring.opened .ham1 {animation:ham1Rotate .65s;animation-fill-mode:forwards;}
+        .hamburger_ring.opened .ham2 {animation:hamRound-in .65s;animation-fill-mode:forwards;}
+        .hamburger_ring.opened .ham3 {animation:ham2Rotate .65s;animation-fill-mode:forwards;}
         
-        .hamburger.opened .path {animation:dash_in .65s;animation-fill-mode: forwards;}
-        .hamburger.opened .animate_path {animation:rotate-in .6s linear normal;animation-fill-mode:forwards;}
+        .hamburger_ring.opened .path {animation:dash_in .65s;animation-fill-mode: forwards;}
+        .hamburger_ring.opened .animate_path {animation:rotate-in .6s linear normal;animation-fill-mode:forwards;}
         
-        .hamburger.closed .ham2 {animation:hamRound-out .95s linear normal;}
-        .hamburger.closed .path {animation:dash_out .65s;animation-fill-mode: forwards;}
-        .hamburger.closed .animate_path {animation:rotate-out .6s linear normal;animation-fill-mode:forwards;}
+        .hamburger_ring.closed .ham2 {animation:hamRound-out .95s linear normal;}
+        .hamburger_ring.closed .path {animation:dash_out .65s;animation-fill-mode: forwards;}
+        .hamburger_ring.closed .animate_path {animation:rotate-out .6s linear normal;animation-fill-mode:forwards;}
 
         @keyframes rotate-out {
           0% {
@@ -521,15 +521,15 @@
       </style>
 
       <script>
-        const closeBtn = document.querySelector('.hamburger');
+        const closeBtn = document.querySelector('.hamburger_ring');
         closeBtn.addEventListener('click', (e) => {
           let elem = e.target.parentNode;
 
-          while (!elem.classList.contains('hamburger')) {
+          while (!elem.classList.contains('hamburger_ring')) {
             elem = elem.parentNode;
           }
           
-          if( elem.classList.contains('hamburger') ) {
+          if( elem.classList.contains('hamburger_ring') ) {
             if( elem.classList.contains('closed')) {
               elem.classList.remove('closed');
               elem.classList.add('opened');

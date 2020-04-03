@@ -10,31 +10,60 @@
 <body>
 	<div class="hamburger">
 		<div class="hamburger_grid">
-			<a href="#" class="menu ham1">
-				<span></span>
-				<span></span>
-				<span></span>
-			</a>
-			<a href="#" class="menu ham2">
-				<span></span>
-				<span></span>
-				<span></span>
-			</a>
-			<a href="#" class="menu ham3">
-				<span></span>
-				<span></span>
-				<span></span>
-			</a>
-			<a href="#" class="menu ham4">
-				<span></span>
-				<span></span>
-				<span></span>
-			</a>
-			<a href="#" class="menu ham5">
-				<span></span>
-				<span></span>
-				<span></span>
-			</a>
+			<div class="hamburger_box">
+				<a href="#" class="menu ham1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="hamburger_box">
+				<a href="#" class="menu ham2">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="hamburger_box">
+				<a href="#" class="menu ham3">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="hamburger_box">
+				<a href="#" class="menu ham4">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="hamburger_box">
+				<a href="#" class="menu ham5">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="hamburger_box">
+				<div class="hamburger_ring closed">
+					<div class="burger_line">
+						<span class="ham1"></span>
+						<span class="ham2"></span>
+						<span class="ham3"></span>
+					</div>
+					<div class="burger_ring">
+						<svg class="svg_ring">
+							<path class="path" fill="none" stroke-miterlimit="10" stroke-width="4" d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2"></path>
+						</svg>
+					</div>
+					<div class="path_burger">
+						<div class="animate_path">
+						<div class="path_rotation"></div>
+						</div>
+						</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -50,6 +79,26 @@
 				}
 			}
 			elem.classList.toggle('active')
+		})
+
+		// hamburger ring
+		const closeBtn = document.querySelector('.hamburger_ring');
+		closeBtn.addEventListener('click', (e) => {
+			let elem = e.target.parentNode;
+
+			while (!elem.classList.contains('hamburger_ring')) {
+				elem = elem.parentNode;
+			}
+			
+			if( elem.classList.contains('hamburger_ring') ) {
+				if( elem.classList.contains('closed')) {
+					elem.classList.remove('closed');
+					elem.classList.add('opened');
+				} else {
+					elem.classList.remove('opened');
+					elem.classList.add('closed');
+				}
+			}
 		})
 	</script>
 </body>
