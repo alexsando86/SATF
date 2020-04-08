@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Menu</title>
+  <link rel="stylesheet" href="../scss/common.scss" />
+</head>
+<body>
+	<div id="menu">
+		<div class="navigation1">
+			<ul class="nav">
+				<li><a href="#"><span>카테고리1</span></a></li>
+				<li><a href="#"><span>카테고리2</span></a></li>
+				<li><a href="#"><span>카테고리3</span></a></li>
+				<li><a href="#"><span>카테고리4</span></a></li>
+				<li><a href="#"><span>카테고리5</span></a></li>
+			</ul>
+			<span class="nav_currentbar"></span>
+		</div>
+		<div class="navigation2">
+			<ul class="nav">
+				<li><a href="#"><span>카테고리1</span></a></li>
+				<li><a href="#"><span>카테고리2</span></a></li>
+				<li><a href="#"><span>카테고리3</span></a></li>
+				<li><a href="#"><span>카테고리4</span></a></li>
+				<li><a href="#"><span>카테고리5</span></a></li>
+			</ul>
+			<span class="nav_currentbar"></span>
+		</div>
+		<div class="navigation3">
+			<ul class="nav">
+				<li><a href="#"><span>카테고리1</span></a></li>
+				<li><a href="#"><span>카테고리2</span></a></li>
+				<li><a href="#"><span>카테고리3</span></a></li>
+				<li><a href="#"><span>카테고리4</span></a></li>
+				<li><a href="#"><span>카테고리5</span></a></li>
+			</ul>
+			<span class="nav_currentbar"></span>
+		</div>
+	</div>
+	<script>
+		(function(){
+
+			function SaiCategory1(){
+				this.navElem = document.querySelector(".nav");;
+				this.barElem = document.querySelector(".nav_currentbar");
+
+				this.barElem.style.width = document.querySelector(".nav a").clientWidth + 'px';
+
+				this.navElem.addEventListener("click", (e) => {
+					let self = e.target;
+					if( self.tagName !== 'A' ) {
+						self = e.target.parentNode;
+					}
+					if( self.classList.contains('navigation1')) {
+						self = null;
+						return;
+					}
+
+					const index = this.getChildNumber(self.parentNode);
+
+					this.barElem.style.width = self.clientWidth + 'px';
+					this.barElem.style.transform = `translateX(${self.clientWidth * index}px)`;
+				})
+
+			}
+
+			SaiCategory1.prototype = {
+				constructor : SaiCategory1,
+				getChildNumber : function(element) {
+					return Array.from(element.parentNode.children).indexOf(element);
+				}
+			}
+
+			const SAICategory1 = new SaiCategory1();
+
+		})();
+	</script>
+</body>
+</html>

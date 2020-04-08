@@ -8,45 +8,45 @@
   <link rel="stylesheet" href="/common.bed29112.css">
 </head>
 <body>
-	<div class="hamburger">
-		<div class="hamburger_grid">
-			<div class="hamburger_box">
+	<div class="buttons">
+		<div class="buttons_grid">
+			<div class="buttons_box">
 				<a href="#" class="menu ham1">
 					<span></span>
 					<span></span>
 					<span></span>
 				</a>
 			</div>
-			<div class="hamburger_box">
+			<div class="buttons_box">
 				<a href="#" class="menu ham2">
 					<span></span>
 					<span></span>
 					<span></span>
 				</a>
 			</div>
-			<div class="hamburger_box">
+			<div class="buttons_box">
 				<a href="#" class="menu ham3">
 					<span></span>
 					<span></span>
 					<span></span>
 				</a>
 			</div>
-			<div class="hamburger_box">
+			<div class="buttons_box">
 				<a href="#" class="menu ham4">
 					<span></span>
 					<span></span>
 					<span></span>
 				</a>
 			</div>
-			<div class="hamburger_box">
+			<div class="buttons_box">
 				<a href="#" class="menu ham5">
 					<span></span>
 					<span></span>
 					<span></span>
 				</a>
 			</div>
-			<div class="hamburger_box">
-				<div class="hamburger_ring closed">
+			<div class="buttons_box">
+				<div class="buttons_ring closed">
 					<div class="burger_line">
 						<span class="ham1"></span>
 						<span class="ham2"></span>
@@ -64,9 +64,20 @@
 						</div>
 				</div>
 			</div>
+			<div class="buttons_box">
+				<div class="checkbox1">
+					<label for="chk1">
+						<input type="checkbox" id="chk1" name="chk">
+						<span>Check1</span>
+						<svg class="svg_chk" viewBox="0 0 21 21">
+							<path class="ani_test" d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+						</svg>
+					</label>
+				</div>
+			</div>
 		</div>
 	</div>
-	<script>var hamMenu = document.querySelector('.hamburger_grid');
+	<script>var hamMenu = document.querySelector('.buttons_grid');
 hamMenu.addEventListener('click', function (e) {
   var elem = e.target;
 
@@ -80,17 +91,17 @@ hamMenu.addEventListener('click', function (e) {
   }
 
   elem.classList.toggle('active');
-}); // hamburger ring
+}); // buttons ring
 
-var closeBtn = document.querySelector('.hamburger_ring');
+var closeBtn = document.querySelector('.buttons_ring');
 closeBtn.addEventListener('click', function (e) {
   var elem = e.target.parentNode;
 
-  while (!elem.classList.contains('hamburger_ring')) {
+  while (!elem.classList.contains('buttons_ring')) {
     elem = elem.parentNode;
   }
 
-  if (elem.classList.contains('hamburger_ring')) {
+  if (elem.classList.contains('buttons_ring')) {
     if (elem.classList.contains('closed')) {
       elem.classList.remove('closed');
       elem.classList.add('opened');

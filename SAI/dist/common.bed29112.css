@@ -252,7 +252,7 @@ button:focus {
     list-style: none;
     margin: 0;
     padding: 0;
-    transition: .3s; }
+    transition: 0.3s; }
     .main_menu_lst li a {
       display: flex;
       align-items: center;
@@ -264,15 +264,20 @@ button:focus {
       text-decoration: none;
       text-transform: uppercase;
       transform: scale(1);
-      transition: .3s;
+      transition: 0.3s;
       transform-origin: 0 0; }
     .main_menu_lst li:hover {
       z-index: 1; }
       .main_menu_lst li:hover a {
         transform: scale(2); }
-    .main_menu_lst li:nth-child(5):hover a, .main_menu_lst li:nth-child(10):hover a, .main_menu_lst li:nth-child(15):hover a {
+    .main_menu_lst li:nth-child(5):hover a,
+    .main_menu_lst li:nth-child(10):hover a,
+    .main_menu_lst li:nth-child(15):hover a {
       transform-origin: right top; }
-    .main_menu_lst li:nth-child(16):hover a, .main_menu_lst li:nth-child(17):hover a, .main_menu_lst li:nth-child(18):hover a, .main_menu_lst li:nth-child(19):hover a {
+    .main_menu_lst li:nth-child(16):hover a,
+    .main_menu_lst li:nth-child(17):hover a,
+    .main_menu_lst li:nth-child(18):hover a,
+    .main_menu_lst li:nth-child(19):hover a {
       transform-origin: left bottom; }
     .main_menu_lst li:nth-child(20):hover a {
       transform-origin: right bottom; }
@@ -316,32 +321,44 @@ button:focus {
       background: #130f40; }
     .main_menu_lst li:nth-child(20) a {
       background: #535c68; }
+    .main_menu_lst li:hover a {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 5s ease infinite; }
 
-.hamburger .hamburger_grid {
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+.buttons .buttons_grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, minmax(150px, 1fr));
   justify-items: center;
   align-items: center; }
 
-.hamburger .menu {
+.buttons .menu {
   position: relative;
   display: inline-block;
   width: 36px;
   height: 28px; }
-  .hamburger .menu span {
+  .buttons .menu span {
     position: absolute;
     left: 0;
     width: 100%;
     height: 4px;
     border-radius: 2px;
     background: #000;
-    transition: .3s; }
-    .hamburger .menu span:nth-child(1) {
+    transition: 0.3s; }
+    .buttons .menu span:nth-child(1) {
       top: 0; }
-    .hamburger .menu span:nth-child(2) {
+    .buttons .menu span:nth-child(2) {
       top: 12px; }
-    .hamburger .menu span:nth-child(3) {
+    .buttons .menu span:nth-child(3) {
       bottom: 0; }
 
 .ham1.active span:nth-of-type(1) {
@@ -395,23 +412,23 @@ button:focus {
     transform: rotate(0) translateY(0); } }
 
 .ham3 span:nth-of-type(1) {
-  animation: ham3OutFirst .5s forwards; }
+  animation: ham3OutFirst 0.5s forwards; }
 
 .ham3 span:nth-of-type(2) {
   opacity: 1;
-  transition: .5s; }
+  transition: 0.5s; }
 
 .ham3 span:nth-of-type(3) {
-  animation: ham3OutEnd .5s forwards; }
+  animation: ham3OutEnd 0.5s forwards; }
 
 .ham3.active span:nth-of-type(1) {
-  animation: ham3InFirst .5s forwards; }
+  animation: ham3InFirst 0.5s forwards; }
 
 .ham3.active span:nth-of-type(2) {
   opacity: 0; }
 
 .ham3.active span:nth-of-type(3) {
-  animation: ham3InEnd .5s forwards; }
+  animation: ham3InEnd 0.5s forwards; }
 
 .ham4.active span:nth-of-type(1) {
   transform: rotate(-50deg) translateX(-7px);
@@ -450,34 +467,34 @@ button:focus {
     transform: translateY(0) rotate(0); } }
 
 .ham5 {
-  transition: .5s;
+  transition: 0.5s;
   transform: rotate(0);
-  transition-delay: .8s; }
+  transition-delay: 0.8s; }
   .ham5 span:nth-of-type(1) {
-    animation: move1FadeOut .5s forwards; }
+    animation: move1FadeOut 0.5s forwards; }
   .ham5 span:nth-of-type(2) {
-    animation: move2FadeOut .5s forwards; }
+    animation: move2FadeOut 0.5s forwards; }
   .ham5 span:nth-of-type(3) {
-    animation: move3FadeOut .5s forwards; }
+    animation: move3FadeOut 0.5s forwards; }
 
 .ham5.active {
-  transition: .5s;
+  transition: 0.5s;
   transform: rotate(-90deg);
   transition-delay: 0s; }
   .ham5.active span:nth-of-type(1) {
-    animation: move1FadeIn .5s .8s forwards; }
+    animation: move1FadeIn 0.5s 0.8s forwards; }
   .ham5.active span:nth-of-type(2) {
-    animation: move2FadeIn .5s .8s forwards; }
+    animation: move2FadeIn 0.5s 0.8s forwards; }
   .ham5.active span:nth-of-type(3) {
-    animation: move3FadeIn .5s .8s forwards; }
+    animation: move3FadeIn 0.5s 0.8s forwards; }
 
-.hamburger_ring {
+.buttons_ring {
   position: relative;
   left: 50%;
   margin-left: -34px;
   width: 68px;
   height: 68px; }
-  .hamburger_ring .burger_line {
+  .buttons_ring .burger_line {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -485,7 +502,7 @@ button:focus {
     width: 36px;
     height: 28px;
     z-index: 1; }
-  .hamburger_ring .burger_ring {
+  .buttons_ring .burger_ring {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -493,15 +510,15 @@ button:focus {
     height: 68px;
     margin: -34px 0 0 -34px;
     z-index: 0; }
-  .hamburger_ring .burger_ring .svg_ring {
+  .buttons_ring .burger_ring .svg_ring {
     width: 68px;
     height: 68px; }
-  .hamburger_ring .burger_ring .path {
+  .buttons_ring .burger_ring .path {
     stroke: red;
     stroke-dasharray: 240;
     stroke-dashoffset: 240;
     stroke-linejoin: round; }
-  .hamburger_ring .path_burger {
+  .buttons_ring .path_burger {
     position: absolute;
     top: 0;
     left: 0;
@@ -510,72 +527,72 @@ button:focus {
     -webkit-mask: url(#mask);
     mask: url(#mask);
     -webkit-mask-box-image: url(https://raygun.io/upload/mask.svg); }
-  .hamburger_ring .animate_path {
+  .buttons_ring .animate_path {
     position: absolute;
     top: 0;
     left: 0;
     width: 68px;
     height: 68px; }
-  .hamburger_ring .path_rotation {
+  .buttons_ring .path_rotation {
     height: 34px;
     width: 34px;
     margin: 34px 34px 0 0;
     transform: rotate(0deg);
     transform-origin: 100% 0; }
-  .hamburger_ring .path_rotation:before {
-    content: '';
+  .buttons_ring .path_rotation:before {
+    content: "";
     display: block;
     width: 30px;
     height: 34px;
     margin: 0 4px 0 0;
     background: red; }
-  .hamburger_ring span[class^="ham"] {
+  .buttons_ring span[class^="ham"] {
     display: block;
     width: 100%;
     height: 4px;
     background: red;
     border-radius: 2px;
-    transition: .5s;
+    transition: 0.5s;
     position: absolute;
     left: 0; }
-  .hamburger_ring .ham1 {
+  .buttons_ring .ham1 {
     top: 0;
     transform-origin: 34px 2px; }
-  .hamburger_ring .ham2 {
+  .buttons_ring .ham2 {
     top: 12px; }
-  .hamburger_ring .ham3 {
+  .buttons_ring .ham3 {
     bottom: 0;
     transform-origin: 34px 2px; }
 
-.hamburger_ring.opened .ham1 {
-  animation: ham1Rotate .65s;
+.buttons_ring.opened .ham1 {
+  animation: ham1Rotate 0.65s;
   animation-fill-mode: forwards; }
 
-.hamburger_ring.opened .ham2 {
-  animation: hamRound-in .65s;
+.buttons_ring.opened .ham2 {
+  animation: hamRound-in 0.65s;
   animation-fill-mode: forwards; }
 
-.hamburger_ring.opened .ham3 {
-  animation: ham2Rotate .65s;
+.buttons_ring.opened .ham3 {
+  animation: ham2Rotate 0.65s;
   animation-fill-mode: forwards; }
 
-.hamburger_ring.opened .path {
-  animation: dash_in .65s;
+.buttons_ring.opened .path {
+  animation: dash_in 0.65s;
   animation-fill-mode: forwards; }
 
-.hamburger_ring.opened .animate_path {
-  animation: rotate-in .6s linear normal;
+.buttons_ring.opened .animate_path {
+  animation: rotate-in 0.6s linear normal;
   animation-fill-mode: forwards; }
 
-.hamburger_ring.closed .ham2 {
-  animation: hamRound-out .95s linear normal; }
+.buttons_ring.closed .ham2 {
+  animation: hamRound-out 0.95s linear normal; }
 
-.hamburger_ring.closed .path {
-  animation: dash_out .65s;
+.buttons_ring.closed .path {
+  animation: dash_out 0.65s;
   animation-fill-mode: forwards; }
 
-.hamburger_ring.closed .animate_path {
-  animation: rotate-out .6s linear normal;
+.buttons_ring.closed .animate_path {
+  animation: rotate-out 0.6s linear normal;
   animation-fill-mode: forwards; }
 
 @keyframes rotate-out {
@@ -669,6 +686,73 @@ button:focus {
   100% {
     left: -5px;
     transform: rotate(45deg); } }
+
+@keyframes cir-ani-in {
+  to {
+    stroke-dashoffset: 0; } }
+
+@keyframes cir-ani-out {
+  from {
+    stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 86.12; } }
+
+.checkbox1 label {
+  position: relative; }
+  .checkbox1 label input[type="checkbox"] {
+    -webkit-appearance: none;
+    border-radius: 4px;
+    width: 21px;
+    height: 21px;
+    box-shadow: 0 0 3px #ccc;
+    outline: none; }
+
+.checkbox1 .svg_chk {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 21px;
+  height: 21px; }
+  .checkbox1 .svg_chk path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 86.12;
+    stroke-dashoffset: 86.12;
+    fill: #fff;
+    stroke-width: 2px;
+    stroke: #000;
+    transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s; }
+
+.checkbox1 input[id="chk1"]:checked ~ .svg_chk path {
+  stroke-dashoffset: 0; }
+
+#menu {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  width: 860px;
+  margin: auto; }
+
+.navigation1 {
+  position: relative; }
+  .nav {
+    display: flex; }
+    .nav li {
+      flex: 1 1 100px; }
+      .nav li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        color: #666; }
+  .navigation1 .nav_currentbar {
+    width: 0;
+    height: 2px;
+    background: dodgerblue;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    transition: 0.3s ease-in-out; }
 
 
 /*# sourceMappingURL=/common.bed29112.css.map */

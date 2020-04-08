@@ -195,46 +195,53 @@ button:focus {
 	height: 100px;
 	background: #40a7ff;
 }
+
 .main_menu_lst {
-	display:grid;
-	height:100vh;
-	grid-template-columns:repeat(5, 1fr);
-	grid-template-rows:repeat(4, 1fr);
+	display: grid;
+	height: 100vh;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(4, 1fr);
 	// grid-auto-flow:column;
 	// place-content:stretch;
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 	li {
-		width:100%;
-		height:100%;
-		list-style:none;
-		margin:0;
-		padding:0;
-		transition:.3s;
+		width: 100%;
+		height: 100%;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		transition: 0.3s;
 		a {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height:100%;
-			color:#fff;
+			height: 100%;
+			color: #fff;
 			font-family: Barlow;
-    	-webkit-font-smoothing: antialiased;
-			text-decoration:none;
+			-webkit-font-smoothing: antialiased;
+			text-decoration: none;
 			text-transform: uppercase;
-			transform:scale(1);
-			transition:.3s;
-			transform-origin:0 0;
+			transform: scale(1);
+			transition: 0.3s;
+			transform-origin: 0 0;
 		}
 		&:hover {
-			z-index:1;
+			z-index: 1;
 			a {
-				transform:scale(2);
+				transform: scale(2);
 			}
 		}
-		&:nth-child(5):hover a, &:nth-child(10):hover a, &:nth-child(15):hover a{
-				transform-origin: right top;
+
+		&:nth-child(5):hover a,
+		&:nth-child(10):hover a,
+		&:nth-child(15):hover a {
+			transform-origin: right top;
 		}
-		&:nth-child(16):hover a, &:nth-child(17):hover a, &:nth-child(18):hover a, &:nth-child(19):hover a {
+		&:nth-child(16):hover a,
+		&:nth-child(17):hover a,
+		&:nth-child(18):hover a,
+		&:nth-child(19):hover a {
 			transform-origin: left bottom;
 		}
 		&:nth-child(20):hover a {
@@ -242,67 +249,85 @@ button:focus {
 		}
 
 		&:nth-child(1) a {
-			background:#f6e58d;
+			background: #f6e58d;
 		}
 		&:nth-child(2) a {
-			background:#ffbe76;
+			background: #ffbe76;
 		}
 		&:nth-child(3) a {
-			background:#ff7979;
+			background: #ff7979;
 		}
 		&:nth-child(4) a {
-			background:#badc58;
+			background: #badc58;
 		}
 		&:nth-child(5) a {
-			background:#dff9fb;
+			background: #dff9fb;
 		}
 		&:nth-child(6) a {
-			background:#f9ca24;
+			background: #f9ca24;
 		}
 		&:nth-child(7) a {
-			background:#f0932b;
+			background: #f0932b;
 		}
 		&:nth-child(8) a {
-			background:#6ab04c;
+			background: #6ab04c;
 		}
 		&:nth-child(9) a {
-			background:#c7ecee;
+			background: #c7ecee;
 		}
 		&:nth-child(10) a {
-			background:#7ed6df;
+			background: #7ed6df;
 		}
 		&:nth-child(11) a {
-			background:#e84118;
+			background: #e84118;
 		}
 		&:nth-child(12) a {
-			background:#e056fd;
+			background: #e056fd;
 		}
 		&:nth-child(13) a {
-			background:#686de0;
+			background: #686de0;
 		}
 		&:nth-child(14) a {
-			background:#30336b;
+			background: #30336b;
 		}
 		&:nth-child(15) a {
-			background:#95afc0;
+			background: #95afc0;
 		}
 		&:nth-child(16) a {
-			background:#22a6b3;
+			background: #22a6b3;
 		}
 		&:nth-child(17) a {
-			background:#be2edd;
+			background: #be2edd;
 		}
 		&:nth-child(18) a {
-			background:#4834d4;
+			background: #4834d4;
 		}
 		&:nth-child(19) a {
-			background:#130f40;
+			background: #130f40;
 		}
 		&:nth-child(20) a {
-			background:#535c68;
+			background: #535c68;
 		}
+		&:hover a {
+			background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+			background-size: 400% 400%;
+			animation: gradient 5s ease infinite;
+		}
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
 	}
 }
 
 // pages
 @import "./button.scss";
+@import "./menu.scss";
