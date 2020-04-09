@@ -734,6 +734,8 @@ button:focus {
         justify-content: center;
         height: 50px;
         color: #666; }
+      .nav li.on a {
+        color: dodgerblue; }
   .navigation1 .nav_currentbar {
     width: 0;
     height: 2px;
@@ -741,7 +743,7 @@ button:focus {
     position: absolute;
     left: 0;
     top: 50px;
-    transition: 0.3s ease-in-out; }
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
 
 
 /*# sourceMappingURL=/common.bed29112.css.map */

@@ -10,7 +10,7 @@
 	<div id="menu">
 		<div class="navigation1">
 			<ul class="nav">
-				<li><a href="#"><span>카테고리1</span></a></li>
+				<li class="on"><a href="#"><span>카테고리1</span></a></li>
 				<li><a href="#"><span>카테고리2</span></a></li>
 				<li><a href="#"><span>카테고리3</span></a></li>
 				<li><a href="#"><span>카테고리4</span></a></li>
@@ -58,6 +58,11 @@
         self = null;
         return;
       }
+
+      Array.from(_this.navElem.children).forEach(function (elem) {
+        elem.classList.remove('on');
+      });
+      self.parentNode.classList.add('on');
 
       var index = _this.getChildNumber(self.parentNode);
 
