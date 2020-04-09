@@ -516,3 +516,45 @@
 		stroke-dashoffset: 0;
 	}
 }
+
+.buttons_box {
+	.radio {
+		position: relative;
+		input {
+			-webkit-appearance: none;
+			position: absolute;
+			opacity: 0;
+		}
+		.check {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 2px;
+			width: 15px;
+			height: 15px;
+			box-shadow: inset 0 0 0 5px dodgerblue, inset 0 0 0 1px #fff;
+			box-sizing: border-box;
+			border-radius: 100%;
+			transition: 0.3s;
+			transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+		}
+		& > span {
+			display: block;
+		}
+		label {
+			position: relative;
+			padding-left: 20px;
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 2px;
+				width: 15px;
+				height: 15px;
+				box-sizing: border-box;
+				border: 1px solid #d9d9d9;
+				border-radius: 100%;
+			}
+		}
+	}
+}

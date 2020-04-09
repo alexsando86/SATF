@@ -715,6 +715,40 @@ button:focus {
 .checkbox1 input[id="chk1"]:checked ~ .svg_chk path {
   stroke-dashoffset: 0; }
 
+.buttons_box .radio {
+  position: relative; }
+  .buttons_box .radio input {
+    -webkit-appearance: none;
+    position: absolute;
+    opacity: 0; }
+  .buttons_box .radio .check {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+    box-shadow: inset 0 0 0 5px dodgerblue, inset 0 0 0 1px #fff;
+    box-sizing: border-box;
+    border-radius: 100%;
+    transition: 0.3s;
+    transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+  .buttons_box .radio > span {
+    display: block; }
+  .buttons_box .radio label {
+    position: relative;
+    padding-left: 20px; }
+    .buttons_box .radio label:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 15px;
+      height: 15px;
+      box-sizing: border-box;
+      border: 1px solid #d9d9d9;
+      border-radius: 100%; }
+
 #menu {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

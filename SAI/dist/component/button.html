@@ -75,6 +75,70 @@
 					</label>
 				</div>
 			</div>
+			<div class="buttons_box">
+				<div class="radio">
+					<span><input type="radio" name="radio" id="radio1" checked="checked"><label for="radio1">라디오</label></span>
+					<span><input type="radio" name="radio" id="radio2"><label for="radio2">라디오</label></span>
+					<span><input type="radio" name="radio" id="radio3"><label for="radio3">라디오</label></span>
+					<span class="check"></span>
+				</div>
+				<script>window.addEventListener("DOMContentLoaded", function () {
+  var checkElem = document.querySelector(".check");
+  var radioElem = document.querySelectorAll("input[name='radio']");
+  var radioParent = document.querySelector(".radio");
+
+  for (var i = 0; i < radioElem.length; i++) {
+    radioElem[i].addEventListener('click', function (e) {
+      var index = Array.from(radioParent.children).indexOf(e.target.parentNode);
+      console.log();
+
+      if (e.target.checked === true) {
+        checkElem.style.transform = "translateY(".concat(e.target.parentNode.clientHeight * index, "px)");
+      }
+    });
+  }
+});</script>
+			</div>
+			<div class="buttons_box">
+				<style>.animation{
+						overflow:hidden;
+						width:150px;
+						height:50px;
+					}
+					.anibox-wrap {
+						
+					}
+					div[class^="anibox"] {
+						display: block;
+						height:50px;
+						/* animation:ani-box 1s infinite; */
+					}
+					@keyframes ani-box {
+						0% {
+							transform:translateY(0);
+						}
+						100% {
+							transform:translateY(-50%);
+						}
+					}</style>
+				<div class="animation">
+					<div class="anibox-wrap">
+						<div class="anibox1">박스1</div>
+						<div class="anibox2">박스2</div>
+						<div class="anibox3">박스3</div>
+					</div>
+					<script>(function () {
+  var aniWrap = document.querySelector('.anibox-wrap');
+  var setTime = setInterval(setClondNode, 1000);
+
+  function setClondNode() {
+    var cloneNodes = document.querySelector('.anibox-wrap').firstElementChild;
+    aniWrap.appendChild(cloneNodes.cloneNode(true));
+    aniWrap.removeChild(cloneNodes);
+  }
+})();</script>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script>var hamMenu = document.querySelector('.buttons_grid');
