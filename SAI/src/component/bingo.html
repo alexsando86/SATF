@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bingo</title>
+	<link rel="stylesheet" href="../scss/common.scss" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+</head>
+<body>
+	<div class="sai_bingo">
+		<ul class="sai_bingo_grid">
+			<li><button type="button">1</button></li>
+			<li><button type="button">2</button></li>
+			<li><button type="button">3</button></li>
+			<li><button type="button">4</button></li>
+			<li><button type="button">5</button></li>
+			<li><button type="button">6</button></li>
+			<li><button type="button">7</button></li>
+			<li><button type="button">8</button></li>
+			<li><button type="button">9</button></li>
+			<li><button type="button">10</button></li>
+			<li><button type="button">11</button></li>
+			<li><button type="button">12</button></li>
+			<li><button type="button">13</button></li>
+			<li><button type="button">14</button></li>
+			<li><button type="button">15</button></li>
+			<li><button type="button">16</button></li>
+			<li><button type="button">17</button></li>
+			<li><button type="button">18</button></li>
+			<li><button type="button">19</button></li>
+			<li><button type="button">20</button></li>
+		</ul>
+	</div>
+	
+	<script>
+		function SaiBingo(){
+			this.flag = true;
+			this.saiBingo = document.querySelector('.sai_bingo');
+			this.stampImgHTML = `<div class="stamp_img"></div>`;
+			this.stampRed = `<div class="stamp"><span>SSG.COM</span></div>`;
+			this.gsapTl = new gsap.timeline();
+			this.saiBingo.addEventListener("click", e => {
+
+				if ( e.target.tagName !== "BUTTON") return;
+
+				if( e.target.className.indexOf('active') < 0 && this.flag ) {
+					this.flag = false;
+					e.target.insertAdjacentHTML('beforeend', this.stampImgHTML);
+					e.target.insertAdjacentHTML('beforeend', this.stampRed);
+					
+					const stampImg = e.target.firstElementChild;
+					this.gsapTl
+							.to(stampImg, 0.5, {scale:1, y:-50, autoAlpha:1})
+							.to('.stamp', 0, {display: 'flex'})
+							.to(stampImg, .5, {scale:2, autoAlpha:0})
+							.to(stampImg, .5, { display: 'none', onComplete: () => {
+								e.target.className = 'active';
+								stampImg.remove();
+								this.flag = true;
+							}})
+					}
+				
+			});
+		}
+		var saiBingo = new SaiBingo();
+	</script>
+</body>
+</html>
