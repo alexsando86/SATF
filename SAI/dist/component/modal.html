@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="/common.bed29112.css">
+</head>
+<body>
+    <div class="sai_contents">
+        <div class="sai_modal_btnset">
+            <button type="button" class="sai_modal_btn" data-modal-count="modal1">Modal1</button>
+            <button type="button" class="sai_modal_btn" data-modal-count="modal2">Modal2</button>
+            <button type="button" class="sai_modal_btn" data-modal-count="modal3">Modal3</button>
+            <button type="button" class="sai_modal_btn" data-modal-count="modal4">Modal4</button>
+            <button type="button" class="sai_modal_btn" data-modal-count="modal5">Modal5</button>
+        </div>
+    </div>
+    <div class="sai_modal_wrap">
+        <div class="sai_modal">
+            <div class="sai_modal_cts">
+                안녕하세요 SAI Modal 입니다.
+            </div>
+        </div>
+        <script>// Modal1
+var saiModal = document.querySelector('.sai_modal_wrap');
+var saiModalBtns = document.querySelectorAll('.sai_modal_btn');
+var saiModalContent = document.querySelector('.sai_modal');
+saiModalBtns.forEach(function (elem, index) {
+  elem.addEventListener('click', function (e) {
+    var self = e.target.dataset.modalCount;
+
+    if (saiModalContent) {
+      saiModal.className = 'sai_modal_wrap';
+      saiModal.classList.add(self, 'active');
+    }
+  });
+});
+saiModalContent.addEventListener('click', function (e) {
+  var self = e.target;
+
+  if (!self.classList.contains('sai_modal')) {
+    self = e.target.parentNode;
+
+    if (self.classList.contains('sai_modal_wrap')) {
+      self = null;
+      return;
+    }
+  }
+
+  saiModal.classList.add('out');
+});</script>
+    </div>
+</body>
+</html>
