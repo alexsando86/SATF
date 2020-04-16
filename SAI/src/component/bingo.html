@@ -10,57 +10,98 @@
 <body>
 	<div class="sai_bingo">
 		<ul class="sai_bingo_grid">
-			<li><button type="button">1</button></li>
-			<li><button type="button">2</button></li>
-			<li><button type="button">3</button></li>
-			<li><button type="button">4</button></li>
-			<li><button type="button">5</button></li>
-			<li><button type="button">6</button></li>
-			<li><button type="button">7</button></li>
-			<li><button type="button">8</button></li>
-			<li><button type="button">9</button></li>
-			<li><button type="button">10</button></li>
-			<li><button type="button">11</button></li>
-			<li><button type="button">12</button></li>
-			<li><button type="button">13</button></li>
-			<li><button type="button">14</button></li>
-			<li><button type="button">15</button></li>
-			<li><button type="button">16</button></li>
-			<li><button type="button">17</button></li>
-			<li><button type="button">18</button></li>
-			<li><button type="button">19</button></li>
-			<li><button type="button">20</button></li>
+			<li><button type="button" data-hb="hbingo1" data-vb="vbingo1">1</button></li>
+			<li><button type="button" data-hb="hbingo1" data-vb="vbingo2">2</button></li>
+			<li><button type="button" data-hb="hbingo1" data-vb="vbingo3">3</button></li>
+			<li><button type="button" data-hb="hbingo1" data-vb="vbingo4">4</button></li>
+			<li><button type="button" data-hb="hbingo1" data-vb="vbingo5">5</button></li>
+			<li><button type="button" data-hb="hbingo2" data-vb="vbingo1">6</button></li>
+			<li><button type="button" data-hb="hbingo2" data-vb="vbingo2">7</button></li>
+			<li><button type="button" data-hb="hbingo2" data-vb="vbingo3">8</button></li>
+			<li><button type="button" data-hb="hbingo2" data-vb="vbingo4">9</button></li>
+			<li><button type="button" data-hb="hbingo2" data-vb="vbingo5">10</button></li>
+			<li><button type="button" data-hb="hbingo3" data-vb="vbingo1">11</button></li>
+			<li><button type="button" data-hb="hbingo3" data-vb="vbingo2">12</button></li>
+			<li><button type="button" data-hb="hbingo3" data-vb="vbingo3">13</button></li>
+			<li><button type="button" data-hb="hbingo3" data-vb="vbingo4">14</button></li>
+			<li><button type="button" data-hb="hbingo3" data-vb="vbingo5">15</button></li>
+			<li><button type="button" data-hb="hbingo4" data-vb="vbingo1">16</button></li>
+			<li><button type="button" data-hb="hbingo4" data-vb="vbingo2">17</button></li>
+			<li><button type="button" data-hb="hbingo4" data-vb="vbingo3">18</button></li>
+			<li><button type="button" data-hb="hbingo4" data-vb="vbingo4">19</button></li>
+			<li><button type="button" data-hb="hbingo4" data-vb="vbingo5">20</button></li>
 		</ul>
 	</div>
 	
 	<script>
 		function SaiBingo(){
 			this.flag = true;
+			this.hBingo = [];
+			this.vBingo = [];
+			this.hCount = 5;
+			this.vCount = 4;
 			this.saiBingo = document.querySelector('.sai_bingo');
+			this.saiBingoGrid = document.querySelector('.sai_bingo_grid');
 			this.stampImgHTML = `<div class="stamp_img"></div>`;
 			this.stampRed = `<div class="stamp"><span>SSG.COM</span></div>`;
 			this.gsapTl = new gsap.timeline();
-			this.saiBingo.addEventListener("click", e => {
+			this.hBingElmeCount = 0;
 
+			this.stampAni = function(e){
+				const stampImg = e.target.firstElementChild;
+				this.gsapTl
+					.to(stampImg, 0.3, {scale:1, y:-50, autoAlpha:1})
+					.to('.stamp', 0, {display: 'flex'})
+					.to(stampImg, .3, {scale:2, autoAlpha:0})
+					.to(stampImg, .3, { display: 'none', onComplete: () => {
+						e.target.className = 'active';
+						stampImg.remove();
+						this.flag = true;
+					}})
+			}
+
+			this.saiBingo.addEventListener("click", e => {
 				if ( e.target.tagName !== "BUTTON") return;
+				const self = e.target;
+				const domRect = self.getBoundingClientRect();
 
 				if( e.target.className.indexOf('active') < 0 && this.flag ) {
 					this.flag = false;
+					this.hBingo.push(self.dataset.hb);
+					this.vBingo.push(self.dataset.vb);
 					e.target.insertAdjacentHTML('beforeend', this.stampImgHTML);
 					e.target.insertAdjacentHTML('beforeend', this.stampRed);
-					
-					const stampImg = e.target.firstElementChild;
-					this.gsapTl
-							.to(stampImg, 0.5, {scale:1, y:-50, autoAlpha:1})
-							.to('.stamp', 0, {display: 'flex'})
-							.to(stampImg, .5, {scale:2, autoAlpha:0})
-							.to(stampImg, .5, { display: 'none', onComplete: () => {
-								e.target.className = 'active';
-								stampImg.remove();
-								this.flag = true;
-							}})
+
+					// horizontal line draw
+					const currentHElem = this.hBingo.filter(elem => {
+						return elem === self.dataset.hb
+					});
+
+					if(currentHElem.length === this.hCount) {
+						const lineElem = document.createElement("div");
+						lineElem.className = "b_line";
+						lineElem.style.top = (domRect.y + domRect.height - this.saiBingo.offsetTop) - (domRect.height/2)  + "px";
+						lineElem.style.left = this.saiBingoGrid.offsetLeft + "px";
+						this.saiBingo.append(lineElem)
+						lineElem.style.width = this.saiBingoGrid.clientWidth + "px";
 					}
-				
+
+					// vertical line draw
+					const currentVElem = this.vBingo.filter(elem => {
+						return elem === self.dataset.vb
+					});
+
+					if(currentVElem.length === this.vCount) {
+						const lineElem = document.createElement("div");
+						lineElem.className = "b_line";
+						lineElem.style.top = this.saiBingoGrid.offsetTop + "px";
+						lineElem.style.left = (domRect.x + domRect.width) - (domRect.width/2)  + "px";
+						this.saiBingo.append(lineElem)
+						lineElem.style.height = this.saiBingoGrid.clientHeight + "px";
+					}
+					
+					this.stampAni(e);
+				}
 			});
 		}
 		var saiBingo = new SaiBingo();

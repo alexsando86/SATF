@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 .sai_bingo {
+	position: relative;
 	&_grid {
 		display: grid;
 		width: calc(150px * 5);
@@ -53,4 +54,11 @@
 .stamp {
 	position: absolute;
 	display: none;
+}
+.b_line {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background: #000;
+	transition: 0.8s;
 }

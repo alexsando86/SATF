@@ -927,21 +927,23 @@ button:focus {
   .modal2.out .sai_modal_cts {
     animation: decrease 1s forwards; }
 
-.sai_bingo_grid {
-  display: grid;
-  width: calc(150px * 5);
-  margin: 100px auto;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, minmax(150px, 1fr));
-  text-align: center;
-  align-items: center;
-  border: 1px solid #d9d9d9; }
-  .sai_bingo_grid li {
-    position: relative;
+.sai_bingo {
+  position: relative; }
+  .sai_bingo_grid {
+    display: grid;
+    width: calc(150px * 5);
+    margin: 100px auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, minmax(150px, 1fr));
+    text-align: center;
+    align-items: center;
     border: 1px solid #d9d9d9; }
-    .sai_bingo_grid li button {
-      width: 100%;
-      height: 150px; }
+    .sai_bingo_grid li {
+      position: relative;
+      border: 1px solid #d9d9d9; }
+      .sai_bingo_grid li button {
+        width: 100%;
+        height: 150px; }
 
 .stamp {
   position: absolute;
@@ -975,6 +977,13 @@ button:focus {
 .stamp {
   position: absolute;
   display: none; }
+
+.b_line {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #000;
+  transition: 0.8s; }
 
 
 /*# sourceMappingURL=/common.bed29112.css.map */
