@@ -927,6 +927,54 @@ button:focus {
   .modal2.out .sai_modal_cts {
     animation: decrease 1s forwards; }
 
+@keyframes wide {
+  0% {
+    width: 0;
+    height: 0; }
+  80% {
+    width: 100%;
+    height: 5px; }
+  100% {
+    width: 100%;
+    height: 100%; } }
+
+@keyframes wide-out {
+  0% {
+    width: 100%;
+    height: 100%; }
+  80% {
+    width: 100%;
+    height: 5px; }
+  100% {
+    width: 0;
+    height: 0; } }
+
+@keyframes fadeIn {
+  0%,
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.modal3.active {
+  transform: scale(1) translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  animation: wide 1s forwards; }
+  .modal3.active .sai_modal_cts {
+    animation: fadeIn 1s forwards; }
+
+.modal3.out {
+  animation: wide-out 1s forwards; }
+  .modal3.out .sai_modal_cts {
+    animation: fadeOut 1s forwards; }
+
 .sai_bingo {
   position: relative; }
   .sai_bingo_grid {
