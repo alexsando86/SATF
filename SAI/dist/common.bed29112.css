@@ -927,7 +927,7 @@ button:focus {
   .modal2.out .sai_modal_cts {
     animation: decrease 1s forwards; }
 
-@keyframes wide {
+@keyframes wideFolding {
   0% {
     width: 0;
     height: 0; }
@@ -938,7 +938,7 @@ button:focus {
     width: 100%;
     height: 100%; } }
 
-@keyframes wide-out {
+@keyframes wideFolding-out {
   0% {
     width: 100%;
     height: 100%; }
@@ -966,14 +966,73 @@ button:focus {
   transform: scale(1) translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  animation: wide 1s forwards; }
+  animation: wideFolding 1s forwards; }
   .modal3.active .sai_modal_cts {
     animation: fadeIn 1s forwards; }
 
 .modal3.out {
-  animation: wide-out 1s forwards; }
+  animation: wideFolding-out 1s forwards; }
   .modal3.out .sai_modal_cts {
     animation: fadeOut 1s forwards; }
+
+@keyframes rotate-ani {
+  0% {
+    transform: scale(1) rotate(0); }
+  50% {
+    transform: scale(1) rotate(180deg);
+    border-radius: 100%;
+    left: 50%;
+    width: 50px;
+    height: 50px; }
+  100% {
+    width: 100%;
+    height: 100%;
+    transform-origin: center center; } }
+
+@keyframes rotate-ani-out {
+  0% {
+    width: 100%;
+    height: 100%;
+    transform-origin: center center; }
+  50% {
+    transform: scale(1) rotate(180deg);
+    border-radius: 100%;
+    left: 50%;
+    width: 50px;
+    height: 50px; }
+  100% {
+    transform: scale(1) rotate(0);
+    border-radius: 100%;
+    left: -50%; } }
+
+@keyframes Bounce {
+  0% {
+    transform: scale(0.7); }
+  40% {
+    transform: scale(1.2); }
+  60% {
+    transform: scale(0.7); }
+  80% {
+    transform: scale(1.2); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.modal4.active {
+  transform: scale(1) translateY(-50%);
+  left: 0;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  animation: rotate-ani 1s cubic-bezier(0, 0, 0.2, 1) forwards; }
+  .modal4.active .sai_modal_cts {
+    opacity: 0;
+    animation: Bounce 1s 1s forwards; }
+
+.modal4.out {
+  animation: rotate-ani-out 1s forwards; }
+  .modal4.out .sai_modal_cts {
+    animation: fadeOut 0.2s forwards; }
 
 .sai_bingo {
   position: relative; }
