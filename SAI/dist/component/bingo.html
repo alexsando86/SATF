@@ -36,13 +36,14 @@
 	<script>function SaiBingo() {
   var _this2 = this;
 
+  this.doc = document;
   this.flag = true;
   this.hBingo = [];
   this.vBingo = [];
   this.hCount = 5;
   this.vCount = 4;
-  this.saiBingo = document.querySelector('.sai_bingo');
-  this.saiBingoGrid = document.querySelector('.sai_bingo_grid');
+  this.saiBingo = this.doc.querySelector('.sai_bingo');
+  this.saiBingoGrid = this.doc.querySelector('.sai_bingo_grid');
   this.stampImgHTML = "<div class=\"stamp_img\"></div>";
   this.stampRed = "<div class=\"stamp\"><span>SSG.COM</span></div>";
   this.gsapTl = new gsap.timeline();
