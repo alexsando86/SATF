@@ -1092,5 +1092,38 @@ button:focus {
   background: #000;
   transition: 0.8s; }
 
+.card_game_wrap .card_game {
+  width: 860px;
+  margin: 100px auto;
+  perspective: 1000px; }
+  .card_game_wrap .card_game .card_list {
+    display: flex;
+    flex-wrap: wrap;
+    transform-style: preserve-3d; }
+    .card_game_wrap .card_game .card_list li {
+      position: relative;
+      flex: 0 1 100px;
+      height: 150px;
+      margin: 5px; }
+      .card_game_wrap .card_game .card_list li button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        border-radius: 10px;
+        transition: 0.5s; }
+        .card_game_wrap .card_game .card_list li button.card_front {
+          background: dodgerblue;
+          transform: rotate(0); }
+        .card_game_wrap .card_game .card_list li button.card_back {
+          background: darkturquoise;
+          transform: rotateY(180deg); }
+      .card_game_wrap .card_game .card_list li.active .card_front {
+        transform: rotateY(-180deg);
+        backface-visibility: hidden; }
+      .card_game_wrap .card_game .card_list li.active .card_back {
+        transform: rotateY(0); }
+
 
 /*# sourceMappingURL=/common.bed29112.css.map */
