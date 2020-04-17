@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <!-- CDN TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+
+  <style>.range{
+		position: relative;
+		display:inline-block;
+		width: 400px;
+		max-width: 100%;
+		margin: 24px 0 16px;
+		}
+		.rangebar[type="range"]{
+		outline: 0;
+		border: 0;
+		width:100%;
+		border-radius: 500px;
+		overflow: hidden;
+		height: 40px;
+		-webkit-appearance: none;
+		background-color: #ddd;
+		}
+		.rangebar[type="range"]::-webkit-slider-thumb {
+				width: 40px;
+				-webkit-appearance: none;
+				height: 40px;
+				cursor: ew-resize;
+				background: #fff;
+				box-shadow: -340px 0 0 320px #1597ff, inset 0 0 0 40px #1597ff;
+				border-radius: 50%;
+				-webkit-transition: box-shadow 0.2s ease-in-out;
+				transition: box-shadow 0.2s ease-in-out;
+				position: relative;
+		}
+		.rangebar[type="range"]:active::-webkit-slider-thumb {
+				background: #fff;
+				box-shadow: -340px 0 0 320px #1597ff, inset 0 0 0 3px #1597ff;
+		}
+		.rangeper{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 100%;
+		z-index:1;
+		width: 40px;
+		height: 40px;
+		margin-top: 10px;
+		color: #fff;
+		font-size: 12px;
+		}
+		.rangeper span{
+		}
+		.rangeper:before{
+		content:'';
+		/*   position: relative; */
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		/*   top: 100%; */
+		left: 0;
+		background-color: #1597ff;
+		border-radius: 0 50% 50% 50%;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+		z-index: -1;
+	}</style>
+</head>
+<body>
+  <div class="contents">
+    <header class="header_top">
+      <div class="btn_menu">
+        <button type="button" class="btn_aside">
+          <span class="blind">메뉴</span>
+        </button>
+        <h2>Ssg Animation Index</h2>
+      </div>
+		</header>
+		
+		<span class="range">
+			<input id="range" type="range" value="0" class="rangebar">
+			<label for="range" class="rangeper"><span>0</span>%</label>
+		</span>
+  <div>
+	<script>(function () {
+  var rangePercent = document.querySelector('.rangebar');
+  rangePercent.addEventListener('change', function (event) {
+    var result = document.querySelector('.rangeper');
+    result.textContent = "".concat(event.target.value, "%");
+    console.log(result.textContent);
+    var draggables = Draggable.create(".range", {
+      type: "x",
+      bounds: ".rangeper",
+      onDrag: updateRange
+    });
+    draggables();
+
+    function updateRange() {
+      console.log(draggables);
+      var x1 = draggables.x;
+      var percent = document.querySelector(".rangeper");
+      TweenLite.set('.rangebar', {
+        x: x1,
+        width: x1
+      });
+      percent.innerHTML = x1;
+    }
+
+    ;
+  });
+})(); // var rangePercent = $('[type="range"]').val();
+// 	$('[type="range"]').on('change input', function() {
+// 		rangePercent = $('[type="range"]').val();
+// 		$('h4').html(rangePercent+'<span></span>');
+// 		$('[type="range"], h4>span').css('filter', 'hue-rotate(-' + rangePercent + 'deg)');
+// 		// $('h4').css({'transform': 'translateX(calc(-50% - 20px)) scale(' + (1+(rangePercent/100)) + ')', 'left': rangePercent+'%'});
+// 		$('h4').css({'transform': 'translateX(-50%) scale(' + (1+(rangePercent/100)) + ')', 'left': rangePercent+'%'});
+// 	});
+// var draggables = Draggable.create(".range", {type:"x",
+//     // bounds:".range",
+//     onDrag :updateSlider 
+// });
+// draggables();
+// function updateSlider (){
+//     console.log(draggables);
+//     var x1 = draggables.x;
+//     // var min = document.querySelector(".rangebar"); 
+//     var percent = document.querySelector(".rangeper"); 
+//     TweenLite.set('.rangebar',{x:x1, width:x1})
+//     percent.innerHTML = x1;
+// };</script>
+</div></div></body>
+</html>
