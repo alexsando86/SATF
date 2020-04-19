@@ -117,74 +117,160 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/slide.js":[function(require,module,exports) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var saiSlide = /*#__PURE__*/function () {
+  function saiSlide(el, opts) {
+    _classCallCheck(this, saiSlide);
+
+    this.DOM = {
+      el: el
+    };
+    this._opts = opts || {};
+    this.config = {
+      saiSlSpeed: this._opts.saiSlSpeed || 800,
+      saiSlDelay: this._opts.saiSlDelay || 3000,
+      saiSlDuration: this._opts.saiSlDuration || 3,
+      saiSlLoop: this._opts.saiSlLoop || true,
+      saiGsapDuration: this._opts.saiGsapDuration || 1,
+      saiGsapEase: this._opts.saiGsapEase || "ease",
+      saiGsapDelay: this._opts.saiGsapDelay || 0.05
+    };
+    this.init();
   }
 
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
+  _createClass(saiSlide, [{
+    key: "init",
+    value: function init() {
+      this.assignElements();
+      this.assignComponents();
+      this.assignEventHandler();
     }
-  }
+  }, {
+    key: "assignElements",
+    value: function assignElements() {
+      this._swiperItem = this.DOM.el.querySelector(".swiper-slide");
+      this._swiperPagination = this.DOM.el.querySelector(".slideshow-pagination");
+      this._swiperNavigation = this.DOM.el.querySelector(".slideshow-navigation");
+      this._swiperNavigationPrev = this.DOM.el.querySelector(".prev");
+      this._swiperNavigationNext = this.DOM.el.querySelector(".next");
+      this._swiperTitle = this.DOM.el.querySelectorAll('.slide-title');
 
-  return '/';
-}
+      this._swiperTitle.forEach(function (slText, i) {
+        var _array = slText.textContent.split("");
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
+        var _html = '';
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
+        _array.forEach(function (txt) {
+          _html += '<span class="text">' + txt + '</span>';
+        });
 
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
+        slText.innerHTML = _html;
+      });
     }
+  }, {
+    key: "assignComponents",
+    value: function assignComponents() {
+      var self = this;
+      this.saislide = new Swiper(this.DOM.el, {
+        speed: this.config.saiSlSpeed,
+        loop: this.config.saiSlLoop,
+        preloadImages: true,
+        updateOnImagesReady: true,
+        autoplay: {
+          delay: this.config.saiSlDelay,
+          disableOnInteraction: false
+        },
+        pagination: {
+          duration: this.config.saiSlDuration
+        },
+        navigation: {
+          nextEl: this._swiperNavigationNext,
+          prevEl: this._swiperNavigationPrev
+        },
+        on: {
+          init: function init() {
+            self.onMoveNext();
+          }
+        }
+      });
+    }
+  }, {
+    key: "assignEventHandler",
+    value: function assignEventHandler() {
+      var _this = this;
 
-    cssTimeout = null;
-  }, 50);
-}
+      this.saislide.on('slideNextTransitionStart', function () {
+        return _this.onMoveNext();
+      });
+      this.saislide.on('slidePrevTransitionStart', function () {
+        return _this.onMovePrev();
+      });
+    }
+  }, {
+    key: "onMovePrev",
+    value: function onMovePrev() {
+      this.DOM.activeSlide = this.DOM.el.querySelector('.swiper-slide-active'), this.DOM.activeSlideImg = this.DOM.activeSlide.querySelector('.slide-image'), this.DOM.activeSlideTitle = this.DOM.activeSlide.querySelector('.slide-title'), this.DOM.activeSlideTitleLetters = [].slice.call(this.DOM.activeSlideTitle.querySelectorAll('span')).reverse();
+      this.DOM.oldSlide = this.DOM.el.querySelector('.swiper-slide-next');
+      this.onMove('prev');
+    }
+  }, {
+    key: "onMoveNext",
+    value: function onMoveNext() {
+      this.DOM.activeSlide = this.DOM.el.querySelector('.swiper-slide-active'), this.DOM.activeSlideImg = this.DOM.activeSlide.querySelector('.slide-image'), this.DOM.activeSlideTitle = this.DOM.activeSlide.querySelector('.slide-title'), this.DOM.activeSlideTitleLetters = this.DOM.activeSlideTitle.querySelectorAll('span');
+      this.DOM.oldSlide = this.DOM.el.querySelector('.swiper-slide-prev');
+      this.onMove('next');
+    }
+  }, {
+    key: "onMove",
+    value: function onMove(direction) {
+      if (this.DOM.oldSlide) {
+        this.DOM.oldSlideTitle = this.DOM.oldSlide.querySelector('.slide-title'), this.DOM.oldSlideTitleLetters = this.DOM.oldSlideTitle.querySelectorAll('span'); // 초기화
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+        gsap.set(this.DOM.oldSlideTitleLetters, {
+          autoAlpha: 0,
+          y: -100,
+          delay: this.config.saiSlDelay
+        });
+      } // 애니메이션
+
+
+      gsap.fromTo(this.DOM.activeSlideTitleLetters, {
+        autoAlpha: 0,
+        y: -100
+      }, {
+        autoAlpha: 1,
+        y: 0,
+        duration: this.config.saiGsapDuration,
+        stagger: 0.05,
+        ease: this.config.saiGsapEase,
+        delay: this.config.saiGsapEelay
+      }); //백그라운드
+
+      gsap.fromTo(this.DOM.activeSlideImg, {
+        x: direction === 'next' ? 200 : -200
+      }, {
+        x: 0,
+        ease: "slow(0.5, 0.4, false)",
+        duration: 1.2
+      });
+    }
+  }]);
+
+  return saiSlide;
+}();
+
+;
+var saislide = new saiSlide(document.querySelector('.slideshow'), {
+  saiGsapDuration: 0.7,
+  saiGsapEase: "back.out(1.7)"
+});
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -388,5 +474,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/slide.js"], null)
+//# sourceMappingURL=/slide.609957ed.js.map
