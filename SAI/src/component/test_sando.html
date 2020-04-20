@@ -127,6 +127,51 @@
       }
     </style>
 
+    <style>
+      @keyframes mouseBlur {
+        0% {
+          transform:scale(0);
+          background:#222;
+          box-shadow:0 0 10px 10px #222;
+        }
+        50% {
+          transform:scale(.7);
+          background:dodgerblue;
+          box-shadow:0 0 10px 10px dodgerblue;
+        }
+        100% {
+          transform:scale(1);
+          background:red;
+          box-shadow:0 0 10px 10px red;
+        }
+      }
+      .mouse_pointer {
+        position: absolute;
+        width:20px;
+        height:20px;
+        background:#222;
+        box-shadow: 0 0 10px 10px #222;
+        border-radius:100%;
+        margin:-10px 0 0 -10px;
+        animation: mouseBlur .3s linear infinite alternate;
+      }
+    </style>
+    <div class="mouse_pointer"></div>
+    <script>
+      const mousePointer = document.querySelector(".mouse_pointer");
+      const screenx = document.body.clientWidth;
+      const screeny = document.body.clientHeight;
+      document.addEventListener("mousemove", e => {
+        const x = e.clientX;
+        const y = e.clientY;
+        if( screenx > x && screeny > y) {
+          // mousePointer.style.transform = "translate(" + x +"px," + y + "px)";
+          mousePointer.style.left = x + "px";
+          mousePointer.style.top = y + "px";
+        }
+      })
+    </script>
+
 
 </body>
 </html>
