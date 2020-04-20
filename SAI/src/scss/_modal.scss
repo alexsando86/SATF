@@ -322,3 +322,32 @@
 		}
 	}
 }
+// Modal5
+@keyframes rightIn {
+	0% {
+		opacity: 0;
+		transform: rperspective(2000px) otateY(180deg) scale(1.5);
+	}
+	100% {
+		opacity: 1;
+		transform: perspective(2000px) rotateY(0) scale(1);
+	}
+}
+.modal5 {
+	&.active {
+		transform: scale(1);
+		.sai_modal_cts {
+			opacity: 0;
+			transform-origin: right top;
+			transform: perspective(2000px) rotateY(180deg);
+			animation: rightIn 1s 1s forwards;
+			box-shadow: 5px 5px 10px 5px #000;
+		}
+	}
+	&.out {
+		transform: scale(0);
+		.sai_modal_cts {
+			animation: none;
+		}
+	}
+}

@@ -20,11 +20,11 @@
 		</div>
 		<div class="navigation2">
 			<ul class="nav">
-				<li><a href="#"><span>카테고리1</span></a></li>
-				<li><a href="#"><span>카테고리2</span></a></li>
-				<li><a href="#"><span>카테고리3</span></a></li>
-				<li><a href="#"><span>카테고리4</span></a></li>
-				<li><a href="#"><span>카테고리5</span></a></li>
+				<li><a href="#"><span>Today</span></a></li>
+				<li><a href="#"><span><i>해</i><i>피</i><i>바</i><i>이</i><i>러</i><i>스</i></span></a></li>
+				<li><a href="#"><span>가정의달</span></a></li>
+				<li><a href="#"><span><i>새</i><i>벽</i><i>배</i><i>송</i></span></a></li>
+				<li><a href="#"><span>장보기</span></a></li>
 			</ul>
 			<span class="nav_currentbar"></span>
 		</div>
@@ -48,7 +48,7 @@
 
 				this.barElem.style.width = document.querySelector(".nav a").clientWidth + 'px';
 
-				this.navElem.addEventListener("click", (e) => {
+				this.navElem.addEventListener("mouseover", (e) => {
 					let self = e.target;
 					if( self.tagName !== 'A' ) {
 						self = e.target.parentNode;

@@ -38,14 +38,9 @@
             })
             saiModalContent.addEventListener('click', e => {
                 let self = e.target;
-                if( !self.classList.contains('sai_modal') ){
-                    self = e.target.parentNode;
-                    if ( self.classList.contains('sai_modal_wrap') ){
-                        self = null;
-                        return;
-                    }
+                if (!self.classList.contains('sai_modal_cts')) {
+                    saiModal.classList.add('out');
                 }
-                saiModal.classList.add('out');
             });
         </script>
     </div>

@@ -19,6 +19,9 @@
 				justify-content: center;
 				height: 50px;
 				color: #666;
+				i {
+					font-style: normal;
+				}
 			}
 			&.on {
 				a {
@@ -35,5 +38,58 @@
 		left: 0;
 		top: 50px;
 		transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+	}
+}
+
+@keyframes stair {
+	0%,
+	40% {
+		transform: translateY(0);
+	}
+	20% {
+		transform: translateY(-10px);
+	}
+}
+@keyframes shine {
+	0%,
+	25%,
+	75%,
+	100% {
+		color: #666;
+	}
+	50% {
+		color: #aaa;
+	}
+}
+.navigation2 {
+	.nav {
+		li {
+			span {
+				display: block;
+			}
+			i {
+				display: inline-block;
+			}
+			&:nth-child(2) {
+				i {
+					animation: shine 0.6s infinite;
+					@for $i from 1 through 5 {
+						&:nth-child(#{$i}) {
+							animation-delay: 0.1 * $i + s;
+						}
+					}
+				}
+			}
+			&:nth-child(4) {
+				i {
+					animation: stair 1s infinite;
+					@for $i from 1 through 4 {
+						&:nth-child(#{$i}) {
+							animation-delay: 0.1 * $i + s;
+						}
+					}
+				}
+			}
+		}
 	}
 }

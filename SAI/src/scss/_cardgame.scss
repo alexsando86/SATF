@@ -29,6 +29,7 @@
 					&.card_back {
 						background: darkturquoise;
 						transform: rotateY(180deg);
+						backface-visibility: hidden;
 					}
 				}
 				&.active {

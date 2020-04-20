@@ -317,7 +317,7 @@ button:focus {
     .main_menu_lst li:hover a {
       background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
       background-size: 400% 400%;
-      animation: gradient 5s ease infinite; }
+      animation: gradient 3s ease infinite; }
 
 @keyframes gradient {
   0% {
@@ -882,6 +882,8 @@ img[class^="snow_flower"] {
         justify-content: center;
         height: 50px;
         color: #666; }
+        .nav li a i {
+          font-style: normal; }
       .nav li.on a {
         color: dodgerblue; }
   .navigation1 .nav_currentbar {
@@ -892,6 +894,52 @@ img[class^="snow_flower"] {
     left: 0;
     top: 50px;
     transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+
+@keyframes stair {
+  0%,
+  40% {
+    transform: translateY(0); }
+  20% {
+    transform: translateY(-10px); } }
+
+@keyframes shine {
+  0%,
+  25%,
+  75%,
+  100% {
+    color: #666; }
+  50% {
+    color: #aaa; } }
+
+.navigation2 .nav li span {
+  display: block; }
+
+.navigation2 .nav li i {
+  display: inline-block; }
+
+.navigation2 .nav li:nth-child(2) i {
+  animation: shine 0.6s infinite; }
+  .navigation2 .nav li:nth-child(2) i:nth-child(1) {
+    animation-delay: 0.1s; }
+  .navigation2 .nav li:nth-child(2) i:nth-child(2) {
+    animation-delay: 0.2s; }
+  .navigation2 .nav li:nth-child(2) i:nth-child(3) {
+    animation-delay: 0.3s; }
+  .navigation2 .nav li:nth-child(2) i:nth-child(4) {
+    animation-delay: 0.4s; }
+  .navigation2 .nav li:nth-child(2) i:nth-child(5) {
+    animation-delay: 0.5s; }
+
+.navigation2 .nav li:nth-child(4) i {
+  animation: stair 1s infinite; }
+  .navigation2 .nav li:nth-child(4) i:nth-child(1) {
+    animation-delay: 0.1s; }
+  .navigation2 .nav li:nth-child(4) i:nth-child(2) {
+    animation-delay: 0.2s; }
+  .navigation2 .nav li:nth-child(4) i:nth-child(3) {
+    animation-delay: 0.3s; }
+  .navigation2 .nav li:nth-child(4) i:nth-child(4) {
+    animation-delay: 0.4s; }
 
 .sai_contents {
   height: 100vh; }
@@ -1148,6 +1196,28 @@ img[class^="snow_flower"] {
   .modal4.out .sai_modal_cts {
     animation: fadeOut 0.2s forwards; }
 
+@keyframes rightIn {
+  0% {
+    opacity: 0;
+    transform: rperspective(2000px) otateY(180deg) scale(1.5); }
+  100% {
+    opacity: 1;
+    transform: perspective(2000px) rotateY(0) scale(1); } }
+
+.modal5.active {
+  transform: scale(1); }
+  .modal5.active .sai_modal_cts {
+    opacity: 0;
+    transform-origin: right top;
+    transform: perspective(2000px) rotateY(180deg);
+    animation: rightIn 1s 1s forwards;
+    box-shadow: 5px 5px 10px 5px #000; }
+
+.modal5.out {
+  transform: scale(0); }
+  .modal5.out .sai_modal_cts {
+    animation: none; }
+
 .sai_bingo {
   position: relative; }
   .sai_bingo_grid {
@@ -1232,7 +1302,8 @@ img[class^="snow_flower"] {
           transform: rotate(0); }
         .card_game_wrap .card_game .card_list li button.card_back {
           background: darkturquoise;
-          transform: rotateY(180deg); }
+          transform: rotateY(180deg);
+          backface-visibility: hidden; }
       .card_game_wrap .card_game .card_list li.active .card_front {
         transform: rotateY(-180deg);
         backface-visibility: hidden; }
