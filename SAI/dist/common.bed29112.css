@@ -174,6 +174,10 @@ caption .blind:before {
   padding: 5px 0;
   background: #f84e64; }
 
+.contents {
+  overflow: hidden;
+  height: 100vh; }
+
 .button_wrap {
   position: relative;
   min-height: 700px; }
