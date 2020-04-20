@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sai Card Game</title>
+  <link rel="stylesheet" href="../scss/common.scss" />
+</head>
+<body>
+	<div class="card_game_wrap">
+		<div class="card_game">
+			<ul class="card_list">
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+				<li>
+					<button type="button" class="card_front"><span>카드앞</span></button>
+					<button type="button" class="card_back"><span>카드뒤</span></button>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		const cardList = document.querySelector(".card_list");
+		cardList.addEventListener("click", (e) =>{
+			let self = e.target;
+			while ( self.tagName !== "BUTTON" ) {
+				self = self.parentNode;
+				if ( self.classList.contains("card_game") || self.tagName === "LI" ) {
+					self = null;
+					return;
+				}
+			}
+			// if ( self.tagName !== "BUTTON" ) return;
+			self.parentNode.classList.toggle("active");
+		})
+	</script>
+</body>
+</html>

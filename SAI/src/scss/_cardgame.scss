@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+.card_game_wrap {
+	.card_game {
+		width: 860px;
+		margin: 100px auto;
+		perspective: 1000px;
+		.card_list {
+			display: flex;
+			flex-wrap: wrap;
+			transform-style: preserve-3d;
+			li {
+				position: relative;
+				flex: 0 1 100px;
+				height: 150px;
+				margin: 5px;
+				button {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100px;
+					height: 100%;
+					border-radius: 10px;
+					transition: 0.5s;
+					&.card_front {
+						background: dodgerblue;
+						transform: rotate(0);
+					}
+					&.card_back {
+						background: darkturquoise;
+						transform: rotateY(180deg);
+					}
+				}
+				&.active {
+					.card_front {
+						transform: rotateY(-180deg);
+						backface-visibility: hidden;
+					}
+					.card_back {
+						transform: rotateY(0);
+					}
+				}
+			}
+		}
+	}
+}
