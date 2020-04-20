@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather</title>
+	<link rel="stylesheet" href="../scss/common.scss" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+</head>
+<body>
+	
+	<div class="weather">
+		<div class="cloud"><img src="../images/cloud.png" alt=""><img src="../images/cloud.png" alt=""></div>
+		<div class="snow">
+			<img src="../images/cloud.png" class="snow_cloud" alt="">
+			<img src="../images/snow.png" class="snow_flower sf1" alt="">
+			<img src="../images/snow.png" class="snow_flower sf2" alt="">
+			<img src="../images/snow.png" class="snow_flower sf3" alt="">
+		</div>
+		<div class="lightning">
+			<img src="../images/cloud.png" class="snow_cloud" alt="">
+			<img src="../images/lightning.png" class="light" alt="">
+		</div>
+		<div class="moon"><img src="../images/moon.png" alt=""></div>
+		<div class="sun"><img src="../images/sun.png" alt=""></div>
+		<div class="water_drop">
+			<img src="../images/cloud.png" class="rain_cloud" alt="">
+			<img src="../images/weahter_drop.png" class="rain_wd rwd1" alt="">
+			<img src="../images/weahter_drop.png" class="rain_wd rwd2" alt="">
+			<img src="../images/weahter_drop.png" class="rain_wd rwd3" alt="">
+		</div>
+		<div class="wind_box">
+			<img src="../images/cloud2.png" class="cloud2" alt="">
+			<img src="../images/wind.png" class="wind" alt="">
+		</div>
+		<div class="rainbox">
+			<img src="../images/cloud2.png" class="cloud2" alt="">
+			<span class="rain rain1"></span>
+			<span class="rain rain2"></span>
+			<span class="rain rain3"></span>
+		</div>
+	</div>
+	<script>
+		const weather = {
+			init: function(){
+				this.sun();
+				this.cloud();
+				this.moon();
+				this.snow();
+				this.lightning();
+				this.waterDrop();
+				this.wind();
+				this.rain();
+			},
+			sun: function(){
+				const sun = document.querySelector('.sun img');
+				const sunTl = gsap.timeline({ repeat: -1, repeatDelay:0 });
+				sunTl.to(sun, 10, {rotate:360, ease:"none"});
+			},
+			cloud: function(){
+				const cloud = document.querySelector('.cloud img:last-child');
+				const cloudTl = gsap.timeline({ repeat: -1, repeatDelay:0 });
+				cloudTl.to(cloud, 2, {x:20, ease:"none"}).to(cloud, 2, {x:0, ease:"none"});
+			},
+			moon: function(){
+				const moon = document.querySelector('.moon img');
+				const moonTl = gsap.timeline({ repeat: -1, repeatDelay:0 });
+				moonTl.to(moon, 3, {rotate:25}).to(moon, 3, {rotate:0});
+			},
+			snow: function(){
+				const snowCloud = document.querySelector('.snow_cloud');
+				const snowFlower = document.querySelectorAll('.snow_flower');
+				const snowCTl = gsap.timeline({ repeat: -1, repeatDelay:0 });
+				const snowFTl = gsap.timeline({ repeat: -1, repeatDelay:0 });
+				snowCTl.to(snowCloud, 2, {y:-10}).to(snowCloud, 2, {y:0});
+				snowFTl.to(snowFlower, 10, {rotate:360, ease:"none"})
+			},
+			lightning: ()=>{
+				const lightning = document.querySelector('.lightning');
+				const light = document.querySelector('.light');
+				const lightTl = gsap.timeline({ repeat: -1, repeatDelay:0 });
+				lightTl.to(lightning, 2, {x:30})
+								.to(light, 0.2, {autoAlpha:0})
+								.to(light, 0.2, {autoAlpha:1})
+								.to(light, 0.2, {autoAlpha:0})
+								.to(light, 0.2, {autoAlpha:1})
+								.to(lightning, 2, {x:0});
+			},
+			waterDrop: () => {
+				const waterCloud = document.querySelector('.rain_cloud');
+				const water_drop = document.querySelectorAll('.rain_wd');
+				const waterCloudTl = gsap.timeline({repeat:-1, repeatDelay:1});
+				const waterDropTl = gsap.timeline({repeat:-1, repeatDelay:1});
+				// waterCloudTl.to(waterCloud, 2, {y:10}).to(waterCloud, 2, {y:0});
+				waterDropTl
+								.to(water_drop, 0.4, {autoAlpha:1, y:0})
+								.to(water_drop, 0.4, {autoAlpha:0, y:10, stagger: 0.5})
+			},
+			wind: () => {
+				const cloud2 = document.querySelector('.cloud2');
+				const wind = document.querySelector('.wind');
+				const cloud2Tl = gsap.timeline({repeat:-1, repeatDelay:1});
+				const windTl = gsap.timeline({repeat:-1, repeatDelay:1});
+				cloud2Tl.to(cloud2, 2, {x:10}).to(cloud2, 2, {x:0});
+				windTl.to(wind, 2, {x:10}).to(wind, 2, {x:0}, "+=0.5")
+			},
+			rain: () => {
+				const rainCloud = document.querySelector('.rainbox .cloud2');
+				const rain = document.querySelectorAll('.rain');
+				const rainCloudTl = gsap.timeline({repeat:-1});
+				const rainTl = gsap.timeline({repeat:-1});
+				rainCloudTl.to(rainCloud, 2, {y:-10}).to(rainCloud, 2, {y:0});
+				rainTl.to(rain, 0.5,{y:10, autoAlpha:1, height:30, stagger:0.5, ease:"Power0.easeNone", transformOrigin:"right top"})
+			}
+		};
+		weather.init();
+	</script>
+</body>
+</html>
