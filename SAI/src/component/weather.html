@@ -110,7 +110,7 @@
 				const rainCloudTl = gsap.timeline({repeat:-1});
 				const rainTl = gsap.timeline({repeat:-1});
 				rainCloudTl.to(rainCloud, 2, {y:-10}).to(rainCloud, 2, {y:0});
-				rainTl.to(rain, 0.5,{y:10, autoAlpha:1, height:30, stagger:0.5, ease:"Power0.easeNone", transformOrigin:"right top"})
+				rainTl.fromTo(rain, 0.5, {y:-20, height:0, transformOrigin:"left -10px"}, {y:10, autoAlpha:1, height:30, stagger:0.5, ease:"Power0.easeNone"})
 			}
 		};
 		weather.init();
