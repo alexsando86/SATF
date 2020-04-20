@@ -4,22 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./src/*.html",
+    "start": "parcel ./src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@babel/preset-env": "^7.8.4",
-    "autoprefixer": "^9.7.4",
-    "node-sass": "^4.13.1",
-    "postcss-modules": "^1.5.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.0.0-0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
-    "parcel-bundler": "^1.12.4",
+    "@babel/core": "^7.9.0",
+    "autoprefixer": "^9.7.4",
+    "postcss-loader": "^3.0.0",
+    "postcss-modules": "^1.5.0",
     "sass": "^1.25.0"
   }
 }
