@@ -1,6 +1,12 @@
 .weather {
-	& > div {
-		display: inline-block;
+	display: grid;
+	grid-template-columns:repeat(10, minmax(150px, 1fr));
+	grid-template-rows:repeat(10, minmax(150px, 1fr));
+	.weather_box {
+		display:inline-block;
+		& > div {
+			display: inline-block;
+		}
 	}
 }
 .cloud {

@@ -327,8 +327,14 @@ button:focus {
   100% {
     background-position: 0% 50%; } }
 
-.weather > div {
-  display: inline-block; }
+.weather {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(150px, 1fr));
+  grid-template-rows: repeat(10, minmax(150px, 1fr)); }
+  .weather .weather_box {
+    display: inline-block; }
+    .weather .weather_box > div {
+      display: inline-block; }
 
 .cloud {
   display: inline-block;
