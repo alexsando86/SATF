@@ -49,16 +49,6 @@
       transform-origin: center center;
     }
 
-
-    @keyframes circle_loading_ani2 {
-      0%{
-        transform: rotate(0);
-      }
-      100%{
-        transform: rotate(360deg);
-      }
-    }
-
     .svg_circle3{
       position: relative;
       width:45px;
@@ -68,7 +58,7 @@
     .circle_3{
       stroke-dashoffset:70;
       stroke-dasharray: 119;
-      animation: circle_loading_ani2 0.7s infinite linear;
+      animation: circle_loading_ani 0.7s infinite linear;
       transform-origin: center;
       fill:transparent;
       stroke: #ff3688;
@@ -123,12 +113,20 @@
         const bar1 = document.querySelector(".bar1");
         const bar2 = document.querySelector(".bar2");
         const bar3 = document.querySelector(".bar3");
-        const barTm1 = TweenMax;
         const barTl1 = gsap.timeline();
+
+        const bar4 = document.querySelector(".bar4");
+        const bar5 = document.querySelector(".bar5");
+        const bar6 = document.querySelector(".bar6");
+        const barTl2 = gsap.timeline();
 
         barTl1.to(bar1, 0.2, { scaleY: 0.5, ease: "none", repeat: -1 , transformOrigin:"center center", yoyo:true}) 
         .to(bar2, 0.2, { scaleY: 0.5, ease: "none", repeat: -1 , transformOrigin:"center center", yoyo:true}) 
         .to(bar3, 0.2, { scaleY: 0.5, ease: "none", repeat: -1 , transformOrigin:"center center", yoyo:true}) 
+
+
+
+
         },
       };
       barProgress.init();
