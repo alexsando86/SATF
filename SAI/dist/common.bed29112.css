@@ -430,6 +430,11 @@ img[class^="snow_flower"] {
 .logo {
   position: relative; }
 
+.sai_loading_wrap {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(100px, 1fr));
+  grid-template-rows: repeat(10, minmax(100px, 1fr)); }
+
 .buttons .buttons_grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

@@ -1,0 +1,6 @@
+@charset "utf-8";
+.sai_loading_wrap {
+	display: grid;
+	grid-template-columns:repeat(10, minmax(100px, 1fr));
+	grid-template-rows:repeat(10, minmax(100px, 1fr));
+}
