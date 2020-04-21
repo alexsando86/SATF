@@ -12,6 +12,72 @@
   <!-- CDN TweenMax -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+  <style>
+    .roading_conts{
+      width:1280px;
+      margin: 0 auto;
+    }
+    svg{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    @keyframes circle_loading_ani {
+      0%{
+        transform: rotate(0);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+
+
+    .circle_1{
+      opacity: 0.5;
+    }
+
+    .circle_2{
+      stroke-dashoffset:105;
+      stroke-dasharray: 119;
+      width:38px;
+      height:38px;
+      animation: circle_loading_ani 0.8s infinite linear;
+      transform-origin: center center;
+    }
+
+
+    @keyframes circle_loading_ani2 {
+      0%{
+        transform: rotate(0);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+
+    .svg_circle3{
+      position: relative;
+      width:45px;
+      height:45px;
+    }
+
+    .circle_3{
+      stroke-dashoffset:70;
+      stroke-dasharray: 119;
+      animation: circle_loading_ani2 0.7s infinite linear;
+      transform-origin: center;
+      fill:transparent;
+      stroke: #ff3688;
+      stroke-width: 4px;
+      width:38px;
+      height:38px;
+    }
+
+  </style>
 </head>
 <body>
   <div class="contents">
@@ -26,5 +92,51 @@
       </button>
     </div>
 
+    <div class="roading_conts">
+      <svg >
+        <defs>
+        </defs>
+        <rect class="bar1" width="5" height="23" style="fill: #ff3688"/>
+        <rect class="bar2" x="10" width="5" height="23" style="fill: #ff3688"/>
+        <rect class="bar3" x="20" width="5" height="23" style="fill: #ff3688"/>
+
+        <rect class="bar4" x="70" width="5" height="23" style="fill: #ff3688"/>
+        <rect class="bar5" x="80" width="5" height="23" style="fill: #ff3688"/>
+        <rect class="bar6" x="90" width="5" height="23" style="fill: #ff3688"/>
+      </svg>
+
+      <svg width="45" height="45">
+        <circle class="circle_1" cx="50%" cy="50%" r="19" style="fill: none;stroke: #ff3688;stroke-miterlimit: 10;stroke-width: 4px"/>
+        <circle class="circle_2" cx="50%" cy="50%" r="19" style="fill: none;stroke: #ff3688;stroke-miterlimit: 10;stroke-width: 4px"/>
+      </svg>
+      
+      <svg class="svg_circle3">
+        <circle class="circle_3" cx="50%" cy="50%" r="19"/>
+      </svg>
+    </div>
+    <script>
+      const barProgress = {
+      init: function () {
+        this.progress();
+      },
+      progress: function () {
+        const bar1 = document.querySelector(".bar1");
+        const bar2 = document.querySelector(".bar2");
+        const bar3 = document.querySelector(".bar3");
+        const barTm1 = TweenMax;
+        const barTl1 = gsap.timeline();
+
+        barTl1.to(bar1, 0.2, { scaleY: 0.5, ease: "none", repeat: -1 , transformOrigin:"center center", yoyo:true}) 
+        .to(bar2, 0.2, { scaleY: 0.5, ease: "none", repeat: -1 , transformOrigin:"center center", yoyo:true}) 
+        .to(bar3, 0.2, { scaleY: 0.5, ease: "none", repeat: -1 , transformOrigin:"center center", yoyo:true}) 
+        },
+      };
+      barProgress.init();
+
+      console.log(document.querySelector('.circle_1').getTotalLength()); 
+    </script>
+
+
+  </div>
 </body>
 </html>
