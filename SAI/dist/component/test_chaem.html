@@ -48,16 +48,6 @@
       transform-origin: center center;
     }
 
-
-    @keyframes circle_loading_ani2 {
-      0%{
-        transform: rotate(0);
-      }
-      100%{
-        transform: rotate(360deg);
-      }
-    }
-
     .svg_circle3{
       position: relative;
       width:45px;
@@ -67,7 +57,7 @@
     .circle_3{
       stroke-dashoffset:70;
       stroke-dasharray: 119;
-      animation: circle_loading_ani2 0.7s infinite linear;
+      animation: circle_loading_ani 0.7s infinite linear;
       transform-origin: center;
       fill:transparent;
       stroke: #ff3688;
@@ -119,8 +109,11 @@
     var bar1 = document.querySelector(".bar1");
     var bar2 = document.querySelector(".bar2");
     var bar3 = document.querySelector(".bar3");
-    var barTm1 = TweenMax;
     var barTl1 = gsap.timeline();
+    var bar4 = document.querySelector(".bar4");
+    var bar5 = document.querySelector(".bar5");
+    var bar6 = document.querySelector(".bar6");
+    var barTl2 = gsap.timeline();
     barTl1.to(bar1, 0.2, {
       scaleY: 0.5,
       ease: "none",

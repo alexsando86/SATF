@@ -151,14 +151,13 @@
 
 <script>
   const ulList = document.querySelector('.main_menu_lst');
-  const w = window.innerWidth/2;
-  const h = window.innerHeight/2;
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const mousePos = {x:0, y:0};
   document.addEventListener("mousemove", e =>{
-    const x = e.clientX / w;
-    const y = e.clientY / h;
-    console.log('x: ', x)
-    console.log('y: ', y)
-    ulList.style.transform = "perspective(2000px) rotateX(" + y + "deg) rotateY(" + x + "deg)";
+    mousePos.x = -1 + (e.clientX / w) * 2
+    mousePos.y = 1 - (e.clientY / h) * 2
+    ulList.style.transform = "perspective(2000px) rotateX(" + (mousePos.y * 5) + "deg) rotateY(" + (mousePos.x * 5) + "deg)";
   })
 </script>
 

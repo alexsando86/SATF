@@ -157,14 +157,16 @@
 });</script>
 
 <script>var ulList = document.querySelector('.main_menu_lst');
-var w = window.innerWidth / 2;
-var h = window.innerHeight / 2;
+var w = window.innerWidth;
+var h = window.innerHeight;
+var mousePos = {
+  x: 0,
+  y: 0
+};
 document.addEventListener("mousemove", function (e) {
-  var x = e.clientX / w;
-  var y = e.clientY / h;
-  console.log('x: ', x);
-  console.log('y: ', y);
-  ulList.style.transform = "perspective(2000px) rotateX(" + y + "deg) rotateY(" + x + "deg)";
+  mousePos.x = -1 + e.clientX / w * 2;
+  mousePos.y = 1 - e.clientY / h * 2;
+  ulList.style.transform = "perspective(2000px) rotateX(" + mousePos.y * 5 + "deg) rotateY(" + mousePos.x * 5 + "deg)";
 });</script>
 
 </div></body>
