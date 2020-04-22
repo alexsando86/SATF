@@ -260,9 +260,11 @@ button:focus {
     transition: 0.3s; }
     .main_menu_lst li a {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-end;
+      justify-content: flex-end;
       height: 100%;
+      padding: 10px;
+      box-sizing: border-box;
       color: #fff;
       font-family: Barlow;
       -webkit-font-smoothing: antialiased;
@@ -274,7 +276,9 @@ button:focus {
     .main_menu_lst li:hover {
       z-index: 1; }
       .main_menu_lst li:hover a {
-        transform: scale(1.3); }
+        transform: scale(1.3);
+        font-size: 2em;
+        text-shadow: 1px 1px 1px #000; }
     .main_menu_lst li:nth-child(1) a {
       background: #f6e58d; }
     .main_menu_lst li:nth-child(2) a {

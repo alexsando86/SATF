@@ -213,9 +213,11 @@ button:focus {
 		transition: 0.3s;
 		a {
 			display: flex;
-			align-items: center;
-			justify-content: center;
+			align-items: flex-end;
+			justify-content: flex-end;
 			height: 100%;
+			padding: 10px;
+			box-sizing: border-box;
 			color: #fff;
 			font-family: Barlow;
 			-webkit-font-smoothing: antialiased;
@@ -229,6 +231,8 @@ button:focus {
 			z-index: 1;
 			a {
 				transform: scale(1.3);
+				font-size: 2em;
+				text-shadow: 1px 1px 1px #000;
 			}
 		}
 

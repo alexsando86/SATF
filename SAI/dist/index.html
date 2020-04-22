@@ -83,15 +83,17 @@
       </ul>
     </section>
     <canvas id="canvas"></canvas>
-    <style>#canvas {position:absolute;left:0;top:0;width:100vw;height:100vh;pointer-events: none;}</style>
+    <style>#canvas {position:absolute;left:0;top:0;pointer-events: none;}</style>
     <script>$(document).ready(function () {
   window.onload = function () {
     //canvas init
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d"); //canvas dimensions
 
-    var W = window.innerWidth;
-    var H = window.innerHeight;
+    var W = document.body.clientWidth;
+    var H = document.body.clientHeight; // var W = window.innerWidth;
+    // var H = window.innerHeight;
+
     canvas.width = W;
     canvas.height = H; //snowflake particles
 
