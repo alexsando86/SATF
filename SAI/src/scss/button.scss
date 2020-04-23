@@ -566,3 +566,42 @@
 		}
 	}
 }
+
+.buttons_item {
+	position: relative;
+	width: 200px;
+	height: 50px;
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #fff;
+		width: 0;
+		height: 100%;
+	}
+	.btn_item {
+		display: block;
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		background: #fff;
+		border: 1px solid #fff;
+		font: {
+			size: 14px;
+			weight: bold;
+		}
+		.txt {
+			display: inline-block;
+			min-width: 10px;
+		}
+	}
+	&_1 {
+		.btn_item {
+			color: #f13c46;
+			border: 1px solid #f13c46;
+		}
+	}
+	// &_2 {
+	// 	background: #0d2549;
+	// }
+}

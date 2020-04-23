@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Button</title>
-  <link rel="stylesheet" href="/common.bed29112.css">
+	<link rel="stylesheet" href="/common.bed29112.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
 </head>
 <body>
 	<div class="buttons">
@@ -99,6 +100,12 @@
   }
 });</script>
 			</div>
+			<div class="buttons_box">
+				<div class="buttons_item buttons_item_1">
+					<div class="background"></div>
+					<button class="btn_item">HOVER EFFECT!</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script>var hamMenu = document.querySelector('.buttons_grid');
@@ -134,6 +141,42 @@ closeBtn.addEventListener('click', function (e) {
       elem.classList.add('closed');
     }
   }
+}); //버튼
+
+var arrBtn = document.querySelectorAll('.buttons_item');
+arrBtn.forEach(function (obj, i) {
+  var _array = obj.querySelector('.btn_item').textContent.split("");
+
+  var _html = '';
+
+  _array.forEach(function (t) {
+    _html += '<span class="txt">' + t + '</span>';
+  });
+
+  obj.querySelector('.btn_item').innerHTML = _html;
+});
+var itemBtn1 = document.querySelector('.buttons_item_1');
+var tl = gsap.timeline({
+  paused: true
+});
+var txt = itemBtn1.querySelectorAll('.txt');
+var bak = itemBtn1.querySelector('.background');
+tl.to(txt, {
+  duration: 0.5,
+  rotationX: 360,
+  stagger: 0.05,
+  color: "#fff"
+}, "#start");
+tl.to(bak, {
+  duration: 0.4,
+  width: "100%",
+  background: "#f13c46"
+}, "#start");
+itemBtn1.addEventListener("mouseenter", function (e) {
+  tl.play();
+});
+itemBtn1.addEventListener("mouseleave", function (e) {
+  tl.reverse();
 });</script>
 </body>
 </html>
