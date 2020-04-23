@@ -87,7 +87,7 @@
       #canvas {position:absolute;left:0;top:0;pointer-events: none;}
     </style>
     <script>
-     $(document).ready(function(){
+      $(document).ready(function(){
         window.onload = function(){
           //canvas init
           var canvas = document.getElementById("canvas");
@@ -112,8 +112,6 @@
               d: Math.random()*mp //density
             })
           }
-
-          console.log(particles)
           
           //Lets draw the flakes
           function draw(){

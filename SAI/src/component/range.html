@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-    <!-- CDN TweenMax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+		<!-- CDN TweenMax -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/Draggable.min.js"></script>
+
 
   <style>
 		.range{
@@ -54,6 +57,7 @@
 		margin-top: 10px;
 		color: #fff;
 		font-size: 12px;
+		transition:.3s linear;
 		}
 		.rangeper span{
 		}
@@ -89,32 +93,31 @@
 			<label for="range" class="rangeper"><span>0</span>%</label>
 		</span>
   <div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/utils/Draggable.min.js"></script>
 	<script>
 		(function() {
 			const rangePercent = document.querySelector('.rangebar');
-			
-			rangePercent.addEventListener('change', (event) => {
 			const result = document.querySelector('.rangeper');
-			result.textContent = `${event.target.value}%`;
-		
-			console.log(result.textContent)
+			const resultTarget = {value: 0};
 			
-			var draggables = Draggable.create(".range", {
-				type:"x",
-				bounds:".rangeper",
-				onDrag :updateRange 
-			});
-			draggables();
+			// var draggables = Draggable.create(rangePercent, {
+			// 	type:"x",
+			// 	bounds: ".range",
+			// 	onDrag : updateRange,
+			// });
 
 			function updateRange (){
-			console.log(draggables);
-				var x1 = draggables.x;
-				var percent = document.querySelector(".rangeper"); 
-			
-				TweenLite.set('.rangebar',{x:x1, width:x1})
-				percent.innerHTML = x1;
-		
+				result.textContent = `${resultTarget.value}%`;
+				result.style.left = parseInt(resultTarget.value) > 50 ? `calc(${resultTarget.value}% - ${result.clientWidth}px)` : `calc(${resultTarget.value}%`;
 			};
+			
+			rangePercent.addEventListener('input', event => {
+				resultTarget.value = event.target.value;
+				updateRange ()
+			});
+			rangePercent.addEventListener('change', event => {
+				resultTarget.value = event.target.value;
+				updateRange ()
 			});
 		})();
 		
