@@ -9,125 +9,217 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
 
   <style>.dh_loader {
-    display: flex;
-    flex-flow: row wrap;
-    max-width: 800px;
-    margin: 0 auto;
-    justify-content: space-around;
-}
+   display: flex;
+   flex-flow: row wrap;
+   max-width: 800px;
+   margin: 0 auto;
+   justify-content: space-around;
+  }
 
 
-.dh_item {
-    position: relative;
-    width: 260px;
-    height: 260px;
-    margin: 16px;
-    background: #f6f9ff;
-    border-radius: 3px;
-}
+  .dh_item {
+   position: relative;
+   width: 260px;
+   height: 260px;
+   margin: 16px;
+   background: #f6f9ff;
+   border-radius: 3px;
+  }
 
-.number {
+  .number {
+   position: absolute;
+   padding: 20px;
+   font-size: 20px;
+   color: #0052ec;
+  }
+
+  .loader {
+   display: flex;
+   position: relative;
+   top: 50%;
+   justify-content: space-evenly;
+   transform: translateY(-50%);
+   align-items: center;
+  }
+
+  .loader1 span:nth-child(1) {
+   width: 20px;
+   height: 20px;
+   background-color:rgba(0, 82, 236, 0.2);
+   border-radius: 50%;
+  }
+
+  .loader1 span:nth-child(2) {
+   width: 20px;
+   height: 20px;
+   background-color:rgba(0, 82, 236, 0.2);
+   border-radius: 50%;
+  }
+
+  .loader1 span:nth-child(3) {
+   width: 20px;
+   height: 20px;
+   background-color:rgba(0, 82, 236, 0.2);
+   border-radius: 50%;
+  }
+
+  .loader1 span:nth-child(4) {
+   width: 20px;
+   height: 20px;
+   background-color:rgba(0, 82, 236, 0.2);
+   border-radius: 50%;
+  }
+
+  .loader1 span:nth-child(5) {
+   width: 20px;
+   height: 20px;
+   background-color:rgba(0, 82, 236, 0.2);
+   border-radius: 50%;
+  }
+
+  .loader2 span {
+   display: block;
+   width: 28px;
+   height: 28px;
+   border-radius: 50%;
+   top: 50%;
+   transform: translateY(-50%);
+   opacity: 0;
+  }
+
+  .loader3 {
+   width: 56px;
+   height: 56px;
+   border: 8px solid rgba(0, 82, 236, 0.2);
+   border-top-color: #0052ec;;
+   border-radius: 50%;
+   margin: 0 auto;
+  }
+
+  .loader4 {
+   margin-top: 100px;
+   text-align: center;
+  }
+
+  .loader4 span {
+   display:inline-block;
+   top: 50%;
+   position:relative;
+   width: 28px;
+   height: 28px;
+   margin-right:20px;
+   background: rgba(0, 82, 236, 0.2);
+   border-radius: 50%;
+  }
+
+  .loader5 {
+   position: relative;
+   top: 50%;
+   text-align: center;
+  }
+
+  .loader5 span {
+   display: inline-block;
+   width: 10px;
+   height: 48px;
+   background: #0052ec;
+   position: relative;
+   top: 50%;
+   margin: -28px auto 0 auto;
+  }
+
+  .loader6 .round1{
     position: absolute;
-    padding: 20px;
-    font-size: 20px;
-    color: #0052ec;
-}
-
-.loader {
-    display: flex;
-    position: relative;
     top: 50%;
-    justify-content: space-evenly;
-    transform: translateY(-50%);
-    align-items: center;
-}
+    margin-top:-50px;
+    height: 100px;
+    width: 100px;
+    left:50%;
+    margin-left:-50px;
+    background-color:white;
+    border-radius:50%;
+  }
 
-.loader1 span:nth-child(1) {
-    width: 20px;
-    height: 20px;
-    background-color:rgba(0, 82, 236, 0.2);
-    border-radius: 50%;
-}
-
-.loader1 span:nth-child(2) {
-    width: 20px;
-    height: 20px;
-    background-color:rgba(0, 82, 236, 0.2);
-    border-radius: 50%;
-}
-
-.loader1 span:nth-child(3) {
-    width: 20px;
-    height: 20px;
-    background-color:rgba(0, 82, 236, 0.2);
-    border-radius: 50%;
-}
-
-.loader1 span:nth-child(4) {
-    width: 20px;
-    height: 20px;
-    background-color:rgba(0, 82, 236, 0.2);
-    border-radius: 50%;
-}
-
-.loader1 span:nth-child(5) {
-    width: 20px;
-    height: 20px;
-    background-color:rgba(0, 82, 236, 0.2);
-    border-radius: 50%;
-}
-
-.loader2 span {
-    display: block;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+  .loader6 .round2{
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-}
+    margin-top:-50px;
+    height: 100px;
+    width: 100px;
+    left:50%;
+    margin-left:-50px;
+    background-color: #333;
+    -webkit-transform: rotate(45deg);
+    border-radius:50%;
+  } 
 
-.loader3 {
-    width: 56px;
-    height: 56px;
-    border: 8px solid rgba(0, 82, 236, 0.2);
-    border-top-color: #0052ec;;
-    border-radius: 50%;
-    margin: 0 auto;
-}
-
-.loader4 {
-    margin-top: 100px;
-    text-align: center;
-}
-
-.loader4 span {
-    display:inline-block;
+  .loader6 .round3{
+    position: absolute;
     top: 50%;
-    position:relative;
-    width: 28px;
-    height: 28px;
-    margin-right:20px;
-    background: rgba(0, 82, 236, 0.2);
-    border-radius: 50%;
-}
+    margin-top:-50px;
+    height: 100px;
+    width: 100px;
+    left:50%;
+    margin-left:-50px;
+    background-color:#333;
+    border-radius:30%;
+  }
 
-.loader5 {
-    position: relative;
+  .loader6 .circle {
+    position: absolute;
     top: 50%;
-    text-align: center;
-}
+    margin-top:-50px;
+    height: 100px;
+    width: 100px;
+    left:50%;
+    margin-left:-50px;
+    background-color:white;
+    border-radius:50%;
+  }
 
-.loader5 span {
-    display: inline-block;
-    width: 10px;
-    height: 48px;
-    background: #0052ec;
-    position: relative;
-    top: 50%;
-    margin: -28px auto 0 auto;
-}</style>
+  .dh_loading_wrapper .loading_wrapper {
+   width: 500px;
+   margin: 0 auto;
+   padding: 0;
+   display: flex;
+   flex-wrap: wrap;
+  }
+
+  .dh_loading_wrapper .loading_wrapper > li {
+   position: relative;
+   width: 250px;
+   height: 250px;
+   list-style: none;
+   transition: transform .15s ease-in-out;
+   flex: 1 1 auto;
+  }
+
+  .dh_loading_wrapper .loading_wrapper .loader1 {
+   background: red;
+  }
+
+  .dh_loading_wrapper .loading_wrapper .loader2 {
+   background: yellow;
+  }
+
+  .dh_loading_wrapper .loading_wrapper .loader5 {
+   background: green;
+  }
+
+  .dh_loading_wrapper .loading_wrapper .loader6 {
+   background: blue;
+  }
+
+  .dh_loading_wrapper .loading_wrapper > li > svg {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 60px;
+   height: 60px;
+  }</style>
 </head>
+
 <body>
   <div class="contents">
     <header class="header_top">
@@ -139,51 +231,106 @@
       </div>
     </header>
 
-
     <section class="dh_loader">
-			<div class="dh_item test_item"></div>
-			<div class="dh_item">
-					<div class="number">1</div>
-					<div class="loader loader1">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-					</div>
-			</div>
-			<div class="dh_item">
-					<div class="number">2</div>
-					<div class="loader loader2">
-							<span></span>
-							<span></span>
-							<span></span>
-					</div>
-			</div>
-			<div class="dh_item">
-					<div class="number">3</div>
-					<div class="loader loader3"></div>
-			</div>
-			<div class="dh_item">
-					<div class="number">4</div>
-					<div class="loader4">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-					</div>
-			</div>
-			<div class="dh_item">
-					<div class="number">5</div>
-					<div class="loader5">
-							<span></span>
-							<span></span>
-							<span></span>
-					</div>
-			</div>
-		</section>
+   <div class="dh_item test_item"></div>
+   <div class="dh_item">
+     <div class="loader loader1">
+       <span></span>
+       <span></span>
+       <span></span>
+       <span></span>
+       <span></span>
+     </div>
+   </div>
+   <div class="dh_item">
+     <div class="loader loader2">
+       <span></span>
+       <span></span>
+       <span></span>
+     </div>
+   </div>
+   <div class="dh_item">
+     <div class="loader loader3"></div>
+   </div>
+   <div class="dh_item">
+     <div class="loader4">
+       <span></span>
+       <span></span>
+       <span></span>
+       <span></span>
+     </div>
+   </div>
+   <div class="dh_item">
+     <div class="loader5">
+       <span></span>
+       <span></span>
+       <span></span>
+     </div>
+   </div>
+   <div class="dh_item">
+    <div class="loader6">
+     <div class="round1"></div>
+     <div class="round2"></div>
+     <div class="round3"></div>
+     <div class="circle"></div>
+    </div>
+   </div>
+  </section>
+
+  <section class="dh_loading_wrapper">
+   <ul class="loading_wrapper">
+    <li class="loader1">
+     <svg fill="#fff" height="80" viewBox="0 0 55 80" width="55" xmlns="http://www.w3.org/2000/svg">
+     <g transform="matrix(1 0 0 -1 0 80)">
+     <rect height="20" rx="3" width="10" "=""></rect>
+     <rect height="80" rx="3" width="10" x="15"></rect>
+     <rect height="50" rx="3" width="10" x="30"></rect>
+     <rect height="30" rx="3" width="10" x="45"></rect>
+     </g>
+     </svg>
+    </li>
+    <li class="loader2">
+     <svg height="45" stroke="#000" viewBox="0 0 45 45" width="45" xmlns="http://www.w3.org/2000/svg">
+      <g fill-rule="evenodd" fill="none" stroke-width="2" transform="translate(1 1)">
+      <circle cx="22" cy="22" r="21.394716" stroke-opacity="0.9621697499999999" stroke-width="1"></circle>
+      <circle cx="22" cy="22" r="14.282715999999997" stroke-opacity="0.5176697499999998" stroke-width="1"></circle>
+      <circle cx="22" cy="22" r="2.457234839407409"></circle>
+      </g>
+     </svg>
+    </li>
+    
+    <li class="loader5">
+     <svg height="58" viewBox="0 0 58 58" width="58" xmlns="http://www.w3.org/2000/svg" style="visibility: visible;">
+     <g fill-rule="evenodd" fill="none">
+     <g stroke-width="1.5" stroke="#FFF" transform="translate(2 1)">
+     <circle cx="42.601" cy="11.462" fill-opacity="0" fill="#fff" r="5"></circle>
+     <circle cx="49.063" cy="27.063" fill-opacity="0" fill="#fff" r="5"></circle>
+     <circle cx="42.601" cy="42.663" fill-opacity="0" fill="#fff" r="5"></circle>
+     <circle cx="27" cy="49.125" fill-opacity="0" fill="#fff" r="5"></circle>
+     <circle cx="11.399" cy="42.663" fill-opacity="0" fill="#fff" r="5"></circle>
+     <circle cx="4.938" cy="27.063" fill-opacity="0" fill="#fff" r="5"></circle>
+     <circle cx="11.399" cy="11.462" fill-opacity="0.034225000000011496" fill="#fff" r="5"></circle>
+     <circle cx="27" cy="5" fill-opacity="0.4692250000000422" fill="#fff" r="5"></circle>
+     </g>
+     </g>
+     </svg>
+    </li>
+    <li class="loader6">
+     <svg height="57" stroke="#fff" viewBox="0 0 57 57" width="57" xmlns="http://www.w3.org/2000/svg">
+     <g fill-rule="evenodd" fill="none">
+     <g stroke-width="2" transform="translate(1 1)">
+     <circle class="loader6_left" cx="26.931008000000087" cy="5.141119999999823" r="5"></circle>
+     <circle class="loader6_top" cx="49.92787200000009" cy="49.85888000000018" r="5"></circle>
+     <circle class="loader6_right" cx="5.141119999999823" cy="50" r="5"></circle>
+     </g>
+     </g>
+     </svg>
+     </li>
+   </ul>
+  </section>
   <div>
-	<script>//1번
+
+ <script>//1번
 TweenLite.to(document.querySelector(".test_item"), 3, {
   backgroundColor: "#0052ec"
 }); //2번
@@ -311,6 +458,112 @@ line_loading.to(document.querySelector(".loader5 span:nth-child(2)"), 1.3, {
 line_loading.to(document.querySelector(".loader5 span:nth-child(1)"), 1.5, {
   boxShadow: "0 0 0 #0052ec, 0 0 0 #0052ec",
   backgroundColor: "#0052ec"
-});</script>
+}); // TweenMax.set($(".round2"), {scale:0.7});
+// TweenMax.set($(".round3"), {scale:0.8});
+// TweenMax.set($("#header"), {background:"rgba(255,255,255,1)"});
+// TweenMax.set($(".cercle"),{scale:0});
+// TweenMax.to($(".round1"), 1, {scale:1,yoyo:true,repeat:-1,opacity:1}); 
+// TweenMax.to($(".round1"), 5, {background:"-webkit-linear-gradient(45deg, #ff3232 1%,#e0cb2a 32%,#1ebf56 51%,#2326db 78%,#aa63b7 100%)",yoyo:true, repeat:-1}); 
+// TweenMax.to($(".round2"), 1, {rotation:360,repeat:-1,opacity:1});
+// TweenMax.to($(".round2"), 2, {scale:1,yoyo:true,repeat:-1,});
+// TweenMax.to($(".round3"), 2, {rotation:720,repeat:-1,ease: Power0.easeNone, y: 0 });
+// TweenMax.to($(".round3"), 1, {scale:0.9,yoyo:true,repeat:-1,});
+// TweenMax.to($(".round3"), 2, {borderRadius:100,yoyo:true,repeat:-1,});
+//dahyn_test
+
+TweenMax.set("svg", {
+  visibility: "visible"
+}); // Loader 1
+
+var loader1Bar1Heights = [20, 45, 57, 80, 64, 32, 66, 45, 64, 23, 66, 13, 64, 56, 34, 34, 2, 23, 76, 79, 20];
+var loader1Bar1Timeline = new TimelineMax({
+  repeat: -1
+});
+var loader1Bar2Heights = [80, 55, 33, 5, 75, 23, 73, 33, 12, 14, 60, 80];
+var loader1Bar2Timeline = new TimelineMax({
+  repeat: -1
+});
+var loader1Bar3Heights = [50, 34, 78, 23, 56, 23, 34, 76, 80, 54, 21, 50];
+var loader1Bar3Timeline = new TimelineMax({
+  repeat: -1
+});
+var loader1Bar4Heights = [30, 45, 13, 80, 56, 72, 45, 76, 34, 23, 67, 30];
+var loader1Bar4Timeline = new TimelineMax({
+  repeat: -1
+});
+
+function tlArrayStep(element, timeline, duration, array) {
+  for (var i = 0, length = array.length; i < length; i++) {
+    timeline.to(element, duration, {
+      height: array[i]
+    });
+  }
+}
+
+tlArrayStep('.loader1 rect:nth-child(1)', loader1Bar1Timeline, 4.3 / loader1Bar1Heights.length, loader1Bar1Heights);
+tlArrayStep('.loader1 rect:nth-child(2)', loader1Bar2Timeline, 2 / loader1Bar2Heights.length, loader1Bar2Heights);
+tlArrayStep('.loader1 rect:nth-child(3)', loader1Bar3Timeline, 1.4 / loader1Bar3Heights.length, loader1Bar3Heights);
+tlArrayStep('.loader1 rect:nth-child(4)', loader1Bar4Timeline, 2 / loader1Bar4Heights.length, loader1Bar4Heights); //loader2
+
+TweenMax.to('.loader2 circle:nth-child(1)', 2, {
+  attr: {
+    r: 22,
+    "stroke-width": 1,
+    "stroke-opacity": 1
+  },
+  opacity: 0,
+  repeat: -1,
+  delay: 1
+});
+TweenMax.to('.loader2 circle:nth-child(2)', 2, {
+  attr: {
+    r: 22,
+    "stroke-width": 1,
+    "stroke-opacity": 1
+  },
+  opacity: 0,
+  repeat: -1
+});
+TweenMax.to('.loader2 circle:nth-child(3)', 1.5, {
+  attr: {
+    r: 1
+  },
+  repeat: -1,
+  yoyo: true,
+  ease: Power2.easeOut
+}); //loader 5
+
+var loader5Timeline = new TimelineMax({
+  repeat: -1
+});
+loader5Timeline.staggerTo('.loader5 circle', 0.4, {
+  attr: {
+    "fill-opacity": 1
+  }
+}, 0.2).staggerTo('.loader5 circle', 0.4, {
+  attr: {
+    "fill-opacity": 0
+  }
+}, 0.2, 0.4); //loader 6
+
+var loader6Timeline = new TimelineMax({
+  repeat: -1
+});
+loader6Timeline.to('.loader6_top', 0.75, {
+  attr: {
+    cx: 50,
+    cy: 50
+  }
+}, "l12_1").to('.loader6_left', 0.75, {
+  attr: {
+    cx: 27,
+    cy: 5
+  }
+}, "l12_1").to('.loader6_right', 0.75, {
+  attr: {
+    cx: 5,
+    cy: 50
+  }
+}, "l12_1");</script>
 </div></div></body>
 </html>
