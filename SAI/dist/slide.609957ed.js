@@ -272,7 +272,7 @@ var saislide = new saiSlide(document.querySelector('.slideshow'), {
   saiGsapDuration: 0.7,
   saiGsapEase: "back.out(1.7)"
 });
-},{}],"C:/Users/user/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -300,7 +300,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62987" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3998" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -476,5 +476,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/user/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/slide.js"], null)
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/slide.js"], null)
 //# sourceMappingURL=/slide.609957ed.js.map
