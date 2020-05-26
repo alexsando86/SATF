@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
+import SAI_Aside from "./components/SAI_Aside";
+import Button from "./components/Button";
+import Modal from "./components/Modal";
+import Tabmenu from "./components/TabMenu";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<div className="sai">
+			<BrowserRouter>
+				<SAI_Aside />
+				<section className="sai_container">
+					<Route path="/Button" exact={true} component={Button} />
+					<Route path="/Modal" exact={true} component={Modal} />
+					<Route path="/TabMenu" exact={true} component={Tabmenu} />
+				</section>
+			</BrowserRouter>
+		</div>
+	);
+};
 
 export default App;
