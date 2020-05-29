@@ -1,38 +1,37 @@
-import React from "react";
-import { Route, Link } from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SAI_Aside = () => {
+	const saiMenuLiRef = useRef([]);
+	const [addrUrls, setAddrUrls] = useState([]);
+	const [clsName, setClsName] = useState("");
+
+	useEffect(() => {
+		let addrUrls = ["/Button", "/Modal", "/TabMenu", "/Swiper", "/Weather", "/Video", "/Form", "/Tooltip", "/Bingo"];
+		saiMenuLiRef.current = new Array(addrUrls.length);
+		setAddrUrls(addrUrls);
+		setClsName("active");
+	}, [clsName]);
+
+	function addRemoveActiveClass(e) {
+		const liElem = e.target.parentNode;
+
+		if (!liElem.classList.contains(clsName)) {
+			liElem.classList.add(clsName);
+		}
+	}
+
 	return (
 		<aside className="sai_aside">
 			<div className="sai_menu">
 				<ul>
-					<li>
-						<Link to="/Button">Button</Link>
-					</li>
-					<li>
-						<Link to="/Modal">Modal</Link>
-					</li>
-					<li>
-						<Link to="/TabMenu">Tab Menu</Link>
-					</li>
-					<li>
-						<a href="#">Swiper</a>
-					</li>
-					<li>
-						<a href="#">Weahter</a>
-					</li>
-					<li>
-						<a href="#">Video</a>
-					</li>
-					<li>
-						<a href="#">Form</a>
-					</li>
-					<li>
-						<a href="#">Tooltip</a>
-					</li>
-					<li>
-						<a href="#">Promotion Bingo</a>
-					</li>
+					{addrUrls.map((elem, idx) => (
+						<li key={idx} ref={saiMenuLiRef.current[idx]}>
+							<Link to={elem} onClick={addRemoveActiveClass}>
+								{elem.slice(1)}
+							</Link>
+						</li>
+					))}
 				</ul>
 			</div>
 		</aside>

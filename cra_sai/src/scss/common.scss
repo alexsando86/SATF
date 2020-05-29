@@ -150,9 +150,17 @@ body {
 		a {
 			display: flex;
 			align-items: center;
-			color: #fff;
+			color: #7d7474;
 			height: 40px;
 			text-decoration: none;
+			padding-left: 20px;
+		}
+		&.active {
+			a {
+				color: #fff;
+				background: rgb(21, 26, 37);
+				border-radius: 15px;
+			}
 		}
 	}
 }
