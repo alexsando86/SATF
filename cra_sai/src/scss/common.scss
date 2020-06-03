@@ -131,18 +131,22 @@ table {
 // SAI Motion Common
 
 body {
-	background-color: #282c34;
+	background-color: #fff;
 }
 .sai {
-	display: grid;
-	grid-gap: 40px;
-	grid-template-columns: 1fr 700px;
 	max-width: 1000px;
 	margin: auto;
+	&_header {
+		height: 80px;
+	}
+	&_container {
+		display: grid;
+		grid-gap: 40px;
+		grid-template-columns: 1fr 700px;
+	}
 }
 
 .sai_menu {
-	padding: 80px 0 0;
 	li {
 		font-family: GT-Walsheim, Neue Helvetica W02, Helvetica Neue, Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
@@ -166,7 +170,6 @@ body {
 }
 
 .sai_container {
-	padding: 80px 0 0;
 }
 
 // partials
