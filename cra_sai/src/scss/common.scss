@@ -137,12 +137,25 @@ body {
 	max-width: 1000px;
 	margin: auto;
 	&_header {
-		height: 80px;
+		height: 100px;
+		&_logo {
+			a {
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: #273c75;
+
+				img {
+					height: 100%;
+				}
+			}
+		}
 	}
 	&_container {
 		display: grid;
 		grid-gap: 40px;
 		grid-template-columns: 1fr 700px;
+		margin-top: 20px;
 	}
 }
 
