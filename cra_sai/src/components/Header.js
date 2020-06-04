@@ -7,7 +7,7 @@ function Header() {
 		<div className="sai_header">
 			<div className="sai_header_logo">
 				<Link to="/Home">
-					<img src={SAILOGO} alt="" />
+					<img src={SAILOGO} alt="logo" />
 				</Link>
 			</div>
 		</div>

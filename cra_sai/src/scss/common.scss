@@ -132,6 +132,7 @@ table {
 
 body {
 	background-color: #fff;
+	font-family: GT-Walsheim, Neue Helvetica W02, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 .sai {
 	max-width: 1000px;
@@ -144,7 +145,6 @@ body {
 				width: 100px;
 				height: 100px;
 				background: #273c75;
-
 				img {
 					height: 100%;
 				}
@@ -156,6 +156,15 @@ body {
 		grid-gap: 40px;
 		grid-template-columns: 1fr 700px;
 		margin-top: 20px;
+		.sai_title_h2 {
+			font-size: 40px;
+			letter-spacing: -1.5px;
+			margin-bottom: 15px;
+		}
+		p {
+			font-size: 28px;
+			letter-spacing: -0.5px;
+		}
 	}
 }
 

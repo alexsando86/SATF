@@ -15,7 +15,7 @@ const App = () => {
 				<Header />
 				<div className="sai_container">
 					<SAI_Aside />
-					<section className="sai_container">
+					<section className="sai_contents">
 						<Route path="/Home" exact={true} component={Home} />
 						<Route path="/Button" exact={true} component={Button} />
 						<Route path="/Modal" exact={true} component={Modal} />
