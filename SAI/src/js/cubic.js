@@ -9,7 +9,7 @@ var canvas = document.getElementById("curve"),
 	time = document.getElementById("time"),
 	timeVal = 500;
 
-var supportsBezierRange = (function() {
+var supportsBezierRange = (function () {
 	var el = document.createElement("div");
 	el.style.WebkitTransitionTimingFunction = "cubic-bezier(1,0,0,1.1)";
 	return !!el.style.WebkitTransitionTimingFunction.length;
@@ -25,14 +25,14 @@ function BezierHandle(x, y) {
 
 BezierHandle.prototype = {
 	// get the edges for easy grabby coordinates
-	getSides: function() {
+	getSides: function () {
 		this.left = this.x - this.width / 2;
 		this.right = this.left + this.width;
 		this.top = this.y - this.height / 2;
 		this.bottom = this.top + this.height;
 	},
 
-	draw: function() {
+	draw: function () {
 		// figure out the edges
 		this.getSides();
 		ctx.fillStyle = "#222";
@@ -51,7 +51,7 @@ function Graph() {
 }
 
 Graph.prototype = {
-	draw: function() {
+	draw: function () {
 		ctx.save();
 
 		ctx.fillStyle = "#fff";
@@ -140,13 +140,7 @@ function onPress(event) {
 
 			var currentlySelected = $("#presets option:selected");
 
-			currentlySelected
-				.removeAttr("selected")
-				.parent()
-				.parent()
-				.find("option")
-				.last()
-				.attr("selected", "selected");
+			currentlySelected.removeAttr("selected").parent().parent().find("option").last().attr("selected", "selected");
 
 			document.addEventListener("mouseup", onRelease, false);
 			document.addEventListener("touchend", touchEnd, false);
@@ -274,7 +268,12 @@ function updateDrawing() {
 	var webkitTrans = "-webkit-transition: all " + timeVal + "ms " + bezier;
 	var webkitTiming = "-webkit-transition-timing-function: " + bezier;
 
-	console.log(bezier);
+	window.cubicBezier = {
+		bezier: bezier,
+		time: timeVal,
+	};
+	console.log(cubicBezier);
+
 	if (y1 > 1 || y1 < 0 || y2 > 1 || y2 < 0) {
 		var webkitY1 = y1,
 			webkitY2 = y2;
@@ -346,24 +345,24 @@ var $presets = $("#presets"),
 $presets.change(presetChange);
 
 // get the button value and toggle the class
-$(".testButton").click(function() {
+$(".testButton").click(function () {
 	//updateDrawing();
 	setTransitions();
 	$("#box").toggleClass($(this).val());
 });
 
-$time.change(function() {
+$time.change(function () {
 	setTransitions();
 	updateDrawing();
 });
 
-$time.keyup(function() {
+$time.keyup(function () {
 	$(this).trigger("change");
 });
 
 // arrow key support
 
-$(document).keydown(function(event) {
+$(document).keydown(function (event) {
 	var currentlySelected, currentIdx;
 
 	if (event.keyCode === 39 && event.target !== time) {

@@ -1,0 +1,198 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+// SAI Motion Common
+
+body {
+	background-color: #fff;
+	font-family: GT-Walsheim, Neue Helvetica W02, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.sai {
+	max-width: 1000px;
+	margin: auto;
+	&_header {
+		height: 100px;
+		&_logo {
+			a {
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: #273c75;
+				img {
+					height: 100%;
+				}
+			}
+		}
+	}
+	&_container {
+		display: grid;
+		grid-gap: 40px;
+		grid-template-columns: 1fr 700px;
+		margin-top: 20px;
+		.sai_title_h2 {
+			font-size: 40px;
+			letter-spacing: -1.5px;
+			margin-bottom: 15px;
+		}
+		p {
+			font-size: 28px;
+			letter-spacing: -0.5px;
+		}
+	}
+}
+
+.sai_menu {
+	li {
+		font-family: GT-Walsheim, Neue Helvetica W02, Helvetica Neue, Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		a {
+			display: flex;
+			align-items: center;
+			color: #7d7474;
+			height: 40px;
+			text-decoration: none;
+			padding-left: 20px;
+		}
+		&.active {
+			a {
+				color: #fff;
+				background: rgb(21, 26, 37);
+				border-radius: 15px;
+			}
+		}
+	}
+}
+
+.sai_container {
+}
+
+// partials
+@import "./modal";

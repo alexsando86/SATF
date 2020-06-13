@@ -1,0 +1,353 @@
+@charset "utf-8";
+// 공통
+.sai_contents {
+	// height: 100vh;
+	.sai_modal_btnset {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: auto;
+	}
+	.sai_modal_btn {
+		width: 100px;
+		height: 30px;
+		background: #000;
+		color: #fff;
+		border-radius: 15px;
+		border: 0;
+		&:not(:first-child) {
+			margin-left: 10px;
+		}
+	}
+}
+.sai_modal_wrap {
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	transform: scale(0);
+	.sai_modal {
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		align-items: center;
+		background: rgba(0, 0, 0, 0.8);
+		.sai_modal_cts {
+			background: #fff;
+			padding: 50px;
+			box-sizing: border-box;
+			border-radius: 10px;
+			font-size: 20px;
+			text-align: center;
+		}
+	}
+}
+// Modal1
+@keyframes roundDown {
+	0% {
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		top: -100%;
+		left: 50%;
+		margin-left: -25px;
+	}
+	80% {
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		top: 50%;
+		left: 50%;
+		margin-left: -25px;
+	}
+	100% {
+		width: 100%;
+		height: 100%;
+	}
+}
+@keyframes roundUp {
+	0% {
+		width: 100%;
+		height: 100%;
+	}
+	80% {
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		top: 50%;
+		left: 50%;
+		margin-left: -25px;
+	}
+	100% {
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		top: -100%;
+		left: 50%;
+		margin-left: -25px;
+	}
+}
+@keyframes zoomIn {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes zoomOut {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+.modal1 {
+	&.active {
+		transform: scale(1);
+		animation: roundDown 0.8s forwards;
+		.sai_modal_cts {
+			transform: scale(0);
+			animation: zoomIn 1s 0.5s forwards;
+		}
+	}
+	&.out {
+		animation: roundUp 0.7s 0.3s forwards;
+		.sai_modal_cts {
+			transform: scale(0);
+			animation: zoomOut 0.5s forwards;
+		}
+	}
+}
+@keyframes increase {
+	0% {
+		opacity: 0;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+@keyframes decrease {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	90% {
+		opacity: 0;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0);
+	}
+}
+@keyframes restore {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50%,
+	90% {
+		opacity: 1;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0);
+	}
+}
+// Modal2
+.modal2 {
+	&.active {
+		transform: scale(1);
+		.sai_modal_cts {
+			animation: increase 1s forwards;
+		}
+	}
+	&.out {
+		animation: restore 1s forwards;
+		.sai_modal {
+			animation: decrease 1s forwards;
+		}
+		.sai_modal_cts {
+			animation: decrease 1s forwards;
+		}
+	}
+}
+// Modal3
+@keyframes wideFolding {
+	0% {
+		width: 0;
+		height: 0;
+	}
+	80% {
+		width: 100%;
+		height: 5px;
+	}
+	100% {
+		width: 100%;
+		height: 100%;
+	}
+}
+@keyframes wideFolding-out {
+	0% {
+		width: 100%;
+		height: 100%;
+	}
+	80% {
+		width: 100%;
+		height: 5px;
+	}
+	100% {
+		width: 0;
+		height: 0;
+	}
+}
+@keyframes fadeIn {
+	0%,
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.modal3 {
+	&.active {
+		transform: scale(1) translate(-50%, -50%);
+		left: 50%;
+		top: 50%;
+		animation: wideFolding 1s forwards;
+		.sai_modal_cts {
+			animation: fadeIn 1s forwards;
+		}
+	}
+	&.out {
+		animation: wideFolding-out 1s forwards;
+		.sai_modal_cts {
+			animation: fadeOut 1s forwards;
+		}
+	}
+}
+
+// Modal4
+@keyframes rotate-ani {
+	0% {
+		transform: scale(1) rotate(0);
+	}
+	50% {
+		transform: scale(1) rotate(180deg);
+		border-radius: 100%;
+		left: 50%;
+		width: 50px;
+		height: 50px;
+	}
+	100% {
+		width: 100%;
+		height: 100%;
+		transform-origin: center center;
+	}
+}
+@keyframes rotate-ani-out {
+	0% {
+		width: 100%;
+		height: 100%;
+		transform-origin: center center;
+	}
+	50% {
+		transform: scale(1) rotate(180deg);
+		border-radius: 100%;
+		left: 50%;
+		width: 50px;
+		height: 50px;
+	}
+	100% {
+		transform: scale(1) rotate(0);
+		border-radius: 100%;
+		left: -50%;
+	}
+}
+@keyframes Bounce {
+	0% {
+		transform: scale(0.7);
+	}
+	40% {
+		transform: scale(1.2);
+	}
+	60% {
+		transform: scale(0.7);
+	}
+	80% {
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.modal4 {
+	&.active {
+		transform: scale(1) translateY(-50%);
+		left: 0;
+		top: 50%;
+		width: 50px;
+		height: 50px;
+		animation: rotate-ani 1s cubic-bezier(0, 0, 0.2, 1) forwards;
+		.sai_modal_cts {
+			opacity: 0;
+			animation: Bounce 1s 1s forwards;
+		}
+	}
+	&.out {
+		animation: rotate-ani-out 1s forwards;
+		.sai_modal_cts {
+			animation: fadeOut 0.2s forwards;
+		}
+	}
+}
+// Modal5
+@keyframes rightIn {
+	0% {
+		opacity: 0;
+		transform: rperspective(2000px) otateY(180deg) scale(1.5);
+	}
+	100% {
+		opacity: 1;
+		transform: perspective(2000px) rotateY(0) scale(1);
+	}
+}
+.modal5 {
+	&.active {
+		transform: scale(1);
+		.sai_modal_cts {
+			opacity: 0;
+			transform-origin: right top;
+			transform: perspective(2000px) rotateY(180deg);
+			animation: rightIn 1s 1s forwards;
+			box-shadow: 5px 5px 10px 5px #000;
+		}
+	}
+	&.out {
+		transform: scale(0);
+		.sai_modal_cts {
+			animation: none;
+		}
+	}
+}
