@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EVENT TEST</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<style>
+		#eventTemplate {
+			width:1024px;
+			margin:0 auto;
+			padding:50px;
+			box-sizing:border-box;
+		}
+		.event_form {
+			display: flex;
+			margin-top:20px;
+		}
+		.event_form label {
+			min-width:100px;
+			flex:0 1 100px;
+		}
+		.event_form label:not(:first-child){
+			margin-left:10px;
+		}
+		.event_form input {
+			width:100%;
+		}
+		.event_form:first-child {
+			margin: 0;
+		}
+		.btn-group {
+			display: flex;
+			width:100%;
+			margin-top: 100px;
+		}
+		.btn-group > * {
+			flex:1;
+		}
+	</style>
+</head>
+<body>
+	<div id="eventTemplate">
+		<form id="eventTemplateForm" name="eventTemplateForm">
+			<fieldset>
+				<legend>EVENT JSON</legend>
+				<div class="event_form">
+					<label for="eventID">Event ID</label>
+					<input type="text" name="event" id="eventID">
+				</div>
+				<div class="event_form">
+					<label for="imageURL">imageURL</label>
+					<input type="text" name="event" id="imageURL">
+				</div>
+				<div class="event_form">
+					<label for="tab1">Tab1 Name</label>
+					<input type="text" name="event" id="tab1">
+					<label for="tab2">Tab2 Name</label>
+					<input type="text" name="event" id="tab2">
+					<label for="tab3">Tab3 Name</label>
+					<input type="text" name="event" id="tab3">
+				</div>
+				<div class="event_form">
+					<label for="Notice1">Notice1</label>
+					<input type="text" name="event" id="Notice1">
+				</div>
+				<div class="event_form">
+					<label for="Notice2">Notice2</label>
+					<input type="text" name="event" id="Notice2">
+				</div>
+				<div class="event_form">
+					<label for="Notice3">Notice3</label>
+					<input type="text" name="event" id="Notice3">
+				</div>
+				<div class="btn-group" role="group" aria-label="...">
+					<button type="button" class="btn btn-default" id="reset">Reset</button>
+					<button type="button" class="btn btn-default completed">Complated</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<script>
+		const welBtnGroup = document.querySelector(".btn-group");
+		const btnCompleted = document.querySelector(".completed");
+		const eventForm = document.forms["eventTemplateForm"];
+
+		btnCompleted.addEventListener("click", () =>{
+			let objStringValue = {};
+			// let objStringValue = 'event = {';
+			console.log('Completed');
+
+			eventForm.event.forEach((elem,idx) => {
+				objStringValue[elem.previousElementSibling.innerHTML] = elem.value
+			})
+
+			// objStringValue += "}";
+
+			console.log(objStringValue);
+			download(objStringValue, "event");
+		});
+		
+		function download(exportObj, exportName) {
+			var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+			var downloadAnchorNode = document.createElement('a');
+			downloadAnchorNode.setAttribute("href",     dataStr);
+			downloadAnchorNode.setAttribute("class", "btn btn-default");
+			downloadAnchorNode.innerHTML = "Download JSON"
+			downloadAnchorNode.setAttribute("download", exportName + ".json");
+			welBtnGroup.appendChild(downloadAnchorNode);
+		}
+			
+		eventForm.reset.addEventListener("click", reset);
+		
+		function reset(){
+			console.log('Reset')
+			eventForm.event.forEach((elem,idx) => {
+				elem.value = "";
+			});
+		}
+
+		
+		
+	</script>
+</body>
+</html>
