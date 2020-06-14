@@ -41,34 +41,34 @@
 </head>
 <body>
 	<div id="eventTemplate">
-		<form id="eventTemplateForm" name="eventTemplateForm">
+		<form id="eventTemplateForm" name="eventTemplateForm" autocomplete="off">
 			<fieldset>
 				<legend>EVENT JSON</legend>
-				<div class="event_form">
+				<div class="event_form" data-key="EventID">
 					<label for="eventID">Event ID</label>
 					<input type="text" name="event" id="eventID">
 				</div>
-				<div class="event_form">
+				<div class="event_form" data-key="imageURL">
 					<label for="imageURL">imageURL</label>
 					<input type="text" name="event" id="imageURL">
 				</div>
-				<div class="event_form">
-					<label for="tab1">Tab1 Name</label>
+				<div class="event_form" data-key="tabNav">
+					<label for="tab1">Tab1Name</label>
 					<input type="text" name="event" id="tab1">
-					<label for="tab2">Tab2 Name</label>
+					<label for="tab2">Tab2Name</label>
 					<input type="text" name="event" id="tab2">
-					<label for="tab3">Tab3 Name</label>
+					<label for="tab3">Tab3Name</label>
 					<input type="text" name="event" id="tab3">
 				</div>
-				<div class="event_form">
+				<div class="event_form" data-key="Notice1">
 					<label for="Notice1">Notice1</label>
 					<input type="text" name="event" id="Notice1">
 				</div>
-				<div class="event_form">
+				<div class="event_form" data-key="Notice2">
 					<label for="Notice2">Notice2</label>
 					<input type="text" name="event" id="Notice2">
 				</div>
-				<div class="event_form">
+				<div class="event_form" data-key="Notice3">
 					<label for="Notice3">Notice3</label>
 					<input type="text" name="event" id="Notice3">
 				</div>
@@ -80,23 +80,39 @@
 		</form>
 	</div>
 	<script>
+		const eventFormDIV = document.querySelectorAll(".event_form");
 		const welBtnGroup = document.querySelector(".btn-group");
 		const btnCompleted = document.querySelector(".completed");
 		const eventForm = document.forms["eventTemplateForm"];
 
 		btnCompleted.addEventListener("click", () =>{
 			let objStringValue = {};
-			// let objStringValue = 'event = {';
 			console.log('Completed');
 
-			eventForm.event.forEach((elem,idx) => {
-				objStringValue[elem.previousElementSibling.innerHTML] = elem.value
+			// 중첩의경우
+			eventFormDIV.forEach((elem, idx) => {
+				const formInsideInputs = elem.querySelectorAll("input");
+				let objSecond = objStringValue[elem.dataset.key] = {};
+
+				formInsideInputs.forEach((inputElem, index) => {
+					if( formInsideInputs.length >= 2 ){
+						objSecond[inputElem.previousElementSibling.innerHTML] = inputElem.value;
+					} else {
+						objStringValue[elem.dataset.key] = inputElem.value;
+					}
+				})
+				
 			})
 
-			// objStringValue += "}";
+			// 하나일경우
+			// eventForm.event.forEach((elem,idx) => {
+			// 	objStringValue[elem.previousElementSibling.innerHTML] = elem.value
+			// })
 
 			console.log(objStringValue);
-			download(objStringValue, "event");
+			if (!welBtnGroup.querySelector("a")) {
+				download(objStringValue, "event");
+			}
 		});
 		
 		function download(exportObj, exportName) {
