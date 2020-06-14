@@ -84,12 +84,31 @@
 		const welBtnGroup = document.querySelector(".btn-group");
 		const btnCompleted = document.querySelector(".completed");
 		const eventForm = document.forms["eventTemplateForm"];
+		let objStringValue = {};
+
 
 		btnCompleted.addEventListener("click", () =>{
-			let objStringValue = {};
 			console.log('Completed');
-
 			// 중첩의경우
+			getJSONStringMultiple();
+
+			// 하나일경우
+			// getJSONStringSingle();
+
+			console.log(objStringValue);
+
+			if (!welBtnGroup.querySelector("a")) {
+				download(objStringValue, "event");
+			}
+		});
+
+		function getJSONStringSingle(){
+			eventForm.event.forEach((elem,idx) => {
+				objStringValue[elem.previousElementSibling.innerHTML] = elem.value
+			})
+		}
+		
+		function getJSONStringMultiple(){
 			eventFormDIV.forEach((elem, idx) => {
 				const formInsideInputs = elem.querySelectorAll("input");
 				let objSecond = objStringValue[elem.dataset.key] = {};
@@ -101,20 +120,9 @@
 						objStringValue[elem.dataset.key] = inputElem.value;
 					}
 				})
-				
-			})
+			});
+		}
 
-			// 하나일경우
-			// eventForm.event.forEach((elem,idx) => {
-			// 	objStringValue[elem.previousElementSibling.innerHTML] = elem.value
-			// })
-
-			console.log(objStringValue);
-			if (!welBtnGroup.querySelector("a")) {
-				download(objStringValue, "event");
-			}
-		});
-		
 		function download(exportObj, exportName) {
 			var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
 			var downloadAnchorNode = document.createElement('a');
